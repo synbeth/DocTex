@@ -4,10 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
 
-<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
-    <ui:define name="content">
+    
+<h:head>
+    <link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/smoothness/skin.css"/>
+	<title>DocTex Login</title>  
+</h:head>
+
+
+<h:body style="background-image:url(http://i.imgur.com/K9E0KYC.jpg);"> <!-- TODO make this a relative path to the image within the project -->
+    <center>
+    <p:panel header="Login Form" style="width: 350px; height: 200px; left:50%; top:50%; transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); position:absolute;">
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputText value="Name"></h:outputText>
@@ -15,8 +24,11 @@
                 <h:outputText value="Password"></h:outputText>
                 <h:inputSecret value="#{loginBean.password}"></h:inputSecret>
             </h:panelGrid>
-            <h:commandButton value="Login" action="login"></h:commandButton>
+            <p:commandButton value="Login" action="login" styleClass="ui-priority-primary"></p:commandButton> 
         </h:form>
-    </ui:define>
-</ui:composition>
+    </p:panel> 
+    <div><h:messages ></h:messages></div>
+    </center>   
+</h:body>
+
 </html>
