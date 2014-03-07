@@ -1,5 +1,8 @@
 package edu.ncsu.beans;
 
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean(name = "loginBean")
 public class LoginBean {
 
 	private String name;

@@ -24,7 +24,12 @@
                 <h:outputText value="Password"></h:outputText>
                 <h:inputSecret value="#{loginBean.password}"></h:inputSecret>
             </h:panelGrid>
-            <p:commandButton value="Login" action="login" styleClass="ui-priority-primary"></p:commandButton> 
+            <p:commandButton value="Login" action="login" styleClass="ui-priority-primary"></p:commandButton>
+            <h:panelGrid columns="3" style="cellspacing=20px;"> 
+            	<h:outputText style="font-size:0.75em;" value="Create new user"></h:outputText>
+            	<h:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;"></h:outputText>
+            	<h:outputText style="font-size:0.75em;" value="Forgot password?"></h:outputText>
+            </h:panelGrid>
         </h:form>
     </p:panel> 
     <div><h:messages ></h:messages></div>

@@ -9,13 +9,32 @@
 		<managed-bean-class>edu.ncsu.beans.LoginBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>themeSwitcherBean</managed-bean-name>
+		<managed-bean-class>edu.ncsu.beans.ThemeSwitcherBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>menuBean</managed-bean-name>
+		<managed-bean-class>edu.ncsu.beans.MenuBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
-		<display-name>login.xhtml</display-name>
-		<from-view-id>/login.xhtml</from-view-id>
+        <from-view-id>/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/home.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+	<navigation-rule>
+		<display-name>WEB-INF/templates/menubar.xhtml</display-name>
+		<from-view-id>/WEB-INF/templates/menubar.xhtml</from-view-id>
 		<navigation-case>
-			<from-outcome>login</from-outcome>
-			<to-view-id>/welcome.xhtml</to-view-id>
+			<from-outcome>settings</from-outcome>
+			<to-view-id>/WEB-INF/auth/settings.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+
 
 </faces-config>
