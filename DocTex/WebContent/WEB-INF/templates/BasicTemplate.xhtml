@@ -43,7 +43,9 @@
     </p:layoutUnit>  
   
     <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">  
-        <h:outputText value="West unit content." />  
+        <h:form id="westForm">  
+        	<ui:include src="/WEB-INF/templates/tieredMenu.xhtml"/> 
+        </h:form>  
     </p:layoutUnit>  
   
     <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">  
@@ -51,16 +53,13 @@
     </p:layoutUnit>  
   
     <p:layoutUnit position="center"> 
-        <h:form>  
-           <div id="content">
-               	<h:panelGroup id="center_content"> 
-           		<!-- <h:panelGroup rendered="#{menuBean.getSrc == '1'}">
-            		<ui:include src="settings.xhtml" />
-        		</h:panelGroup>-->
-           
-    				<ui:insert name="center_content">
-    				</ui:insert> 
-    			</h:panelGroup>
+        <h:form id="centerForm">  
+           <div id="content">           
+           		<h:panelGroup id="center_content"> 
+           			<p:panel id="centerPanel">          			
+                	 <ui:include src="#{menuBean.getSrc()}.xhtml" />
+           			</p:panel>
+        		</h:panelGroup> 
 			</div>
         </h:form>  
     </p:layoutUnit>  

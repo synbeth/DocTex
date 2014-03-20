@@ -1,0 +1,16 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
+	
+	<p:growl id="growl"/>
+
+	<p:tieredMenu style="width:180px">  
+        <p:submenu label="Ajax Menuitems" icon="ui-icon-refresh">  
+            <p:menuitem value="Save" icon="ui-icon-disk" />  
+            <p:menuitem value="Update" icon="ui-icon-arrowrefresh-1-w" />  
+        </p:submenu>  
+    </p:tieredMenu>  
+	
+</ui:composition>

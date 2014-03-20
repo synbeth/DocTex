@@ -7,8 +7,12 @@
 	<p:growl id="growl"/>
 
 		<p:menubar id="menubar">
-        	
-        	<p:menuitem label="Settings" value="Settings" ajax="true" action="/auth/settings.xhtml"></p:menuitem>
+			<p:submenu label="File" icon="ui-icon-document">
+				<p:submenu label="New" icon="ui-icon-contact">
+					<p:menuitem value="Project" update=":centerForm:centerPanel" ajax="true" actionListener="#{menuBean.setView(2)}"></p:menuitem>
+				</p:submenu>
+			</p:submenu>         	
+        	<p:menuitem value="Settings" update=":centerForm:centerPanel" ajax="true" actionListener="#{menuBean.setView(1)}"></p:menuitem>
        
 		</p:menubar>
 	

@@ -11,15 +11,21 @@ import javax.faces.event.ActionEvent;
 public class MenuBean {
 	
     private int view;
-    private String src = "home.xhtml";
+    private String src = "/WEB-INF/auth/welcome";
 
     public void setView(int viewNum){
         view = viewNum;
 
         if (viewNum == 0)
-            src = "home.xhtml";
+            src = "/WEB-INF/auth/welcome";
         else if (viewNum == 1)
-            src = "settings.xhtml";
+            src = "/WEB-INF/auth/settings";
+        else if (viewNum == 2)
+            src = "/WEB-INF/auth/newProject";
+    }
+    
+    public String test(){
+    	return "Testing!";
     }
     
     public String getSrc()

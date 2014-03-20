@@ -7,14 +7,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui" >
 	
-<ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
-<ui:define name="center_content">
-<h:head>
-	<title>DocTex Welcome</title>  
-</h:head>	
+<h:form id="form">
 <h:body>
         <h:outputLabel value="Welcome #{loginBean.name}"></h:outputLabel>
 </h:body>
-    </ui:define>
-</ui:composition>
+</h:form>
+
 </html>
