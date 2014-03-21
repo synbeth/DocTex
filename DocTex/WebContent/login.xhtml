@@ -9,12 +9,15 @@
 
     
 <h:head>
-    <link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/smoothness/skin.css"/>
+    <!-- <link type="text/css" rel="stylesheet" href="#{request.contextPath}/themes/smoothness/skin.css"/> -->
+	<style>
+		.bimage{background-image:url("resources/images/grey_background.jpg");}
+	</style>
 	<title>DocTex Login</title>  
 </h:head>
 
 
-<h:body style="background-image:url(http://i.imgur.com/K9E0KYC.jpg);"> <!-- TODO make this a relative path to the image within the project -->
+<h:body styleClass="bimage"> 
     <center>
     <p:panel header="Login Form" style="width: 350px; height: 200px; left:50%; top:50%; transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); position:absolute;">
         <h:form>
@@ -26,7 +29,7 @@
             </h:panelGrid>
             <p:commandButton value="Login" action="login" styleClass="ui-priority-primary"></p:commandButton>
             <h:panelGrid columns="3" style="cellspacing=20px;"> 
-            	<h:outputText style="font-size:0.75em;" value="Create new user"></h:outputText>
+            	<h:outputText style="font-size:0.75em;" value="Register new user"></h:outputText>
             	<h:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;"></h:outputText>
             	<h:outputText style="font-size:0.75em;" value="Forgot password?"></h:outputText>
             </h:panelGrid>

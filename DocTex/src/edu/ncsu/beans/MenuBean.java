@@ -5,6 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import edu.ncsu.beans.SideMenuBean;
 
 @ManagedBean
 @SessionScoped
@@ -12,16 +13,20 @@ public class MenuBean {
 	
     private int view;
     private String src = "/WEB-INF/auth/welcome";
+    
+    private SideMenuBean sideMenu;
 
     public void setView(int viewNum){
-        view = viewNum;
+        this.view = viewNum;
 
         if (viewNum == 0)
             src = "/WEB-INF/auth/welcome";
         else if (viewNum == 1)
             src = "/WEB-INF/auth/settings";
-        else if (viewNum == 2)
+        else if (viewNum == 2){
             src = "/WEB-INF/auth/newProject";
+            //sideMenu.setState(false);
+        }
     }
     
     public String test(){

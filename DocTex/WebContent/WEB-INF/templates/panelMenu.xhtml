@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
+	
+	<p:growl id="growl"/>
+
+	<p:panelMenu style="width:200px">  
+        <p:submenu label="Select Template">  
+            <p:menuitem value="Choose existing" update=":centerForm:centerPanel" ajax="true" actionListener="#{sideMenuBean.setView(1)}" />  
+            <p:submenu label="Custom">
+            	<p:menuitem value="Create new" update=":centerForm:centerPanel" ajax="true" actionListener="#{sideMenuBean.setView(2)}"/>
+            	<p:menuitem value="Load template" update=":centerForm:centerPanel" ajax="true" actionListener="#{sideMenuBean.setView(3)}"/>
+            </p:submenu>  
+        </p:submenu>    
+    </p:panelMenu>    
+	
+</ui:composition>
+
