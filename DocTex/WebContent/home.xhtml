@@ -10,7 +10,10 @@
 <ui:composition template="/WEB-INF/templates/BasicTemplate.xhtml">
 <ui:define name="center_content">
 <h:head>
-	<title>DocTex Welcome</title>  
+	<title>DocTex Welcome</title>
+	<style>
+		.bimage{background-image:url("resources/images/grey_background.jpg");}
+	</style>  
 </h:head>	
 <h:body>
         <h:outputLabel value="Welcome #{loginBean.name}"></h:outputLabel>

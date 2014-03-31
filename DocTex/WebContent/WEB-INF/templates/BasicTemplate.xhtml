@@ -5,7 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui" >
-
+	
 <body>
 
 <h:outputStylesheet name="css/default.css" />
@@ -18,7 +18,7 @@
 
 <p:layout fullPage="true" widgetVar="layoutWdgt">  
   
-    <p:layoutUnit position="north" closable="false" collapsible="false" style="overflow:visible;" scrollable="null"> 
+    <p:layoutUnit position="north" closable="false" collapsible="true" style="overflow:visible;" scrollable="null" gutter="0"> 
     	<style type="text/css">
         	.ui-layout-north {
             	z-index:20 !important;
@@ -38,7 +38,7 @@
   
     <!-- <p:layoutUnit position="south" size="100" header="Bottom" resizable="true" closable="true" collapsible="true"> -->   
   
-    <p:layoutUnit id="leftLayout" header="LaTeX Project" position="west" rendered="#{sideMenuBean.getState()}"> 
+    <p:layoutUnit id="leftLayout" header="LaTeX Project" position="west" rendered="#{sideMenuBean.getState()}" gutter="0" collapsible="true"> 
         <h:form id="westForm">  
         	<ui:include src="/WEB-INF/templates/panelMenu.xhtml"/> 
         </h:form>
@@ -46,13 +46,11 @@
   
     <!-- <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop"></p:layoutUnit> --> 
   
-    <p:layoutUnit position="center"> 
+    <p:layoutUnit position="center" gutter="0" collapsible="true"> 
         <h:form id="centerForm">  
            <div id="content">           
-           		<h:panelGroup id="center_content"> 
-           			<p:panel id="centerPanel">          			
-                	 <ui:include src="#{menuBean.getSrc()}.xhtml" />
-           			</p:panel>
+           		<h:panelGroup id="center_content">         			
+                	 <ui:include src="#{navBean.getSrc()}.xhtml" />
         		</h:panelGroup> 
 			</div>
         </h:form>  

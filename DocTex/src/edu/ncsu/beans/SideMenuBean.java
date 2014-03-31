@@ -10,8 +10,6 @@ import javax.faces.application.FacesMessage;
 @SessionScoped
 public class SideMenuBean {
 	
-    private int view;
-    private String src = "/WEB-INF/auth/newProject";
     private boolean state = true;
     
     //Set whether the menu is rendered/collapsed (yet to decide which) 
@@ -26,22 +24,5 @@ public class SideMenuBean {
         return state;
     }
     
-    public void setView(int viewNum){
-        this.view = viewNum;
-        
-        switch(viewNum){
-        	case 0:
-        		src = "";
-        	case 1:
-        		src = "";
-        	case 2:
-        		src = "";
-        	case 3:
-        		src = "";
-        	case 4:
-        		src = "";
-        }
-                
-    }
 
 }

@@ -9,10 +9,10 @@
 		<p:menubar id="menubar">
 			<p:submenu label="File" icon="ui-icon-document">
 				<p:submenu label="New" icon="ui-icon-contact">
-					<p:menuitem value="Project" update=":centerForm:centerPanel" ajax="true" actionListener="#{menuBean.setView(2)}"></p:menuitem>
+					<p:menuitem value="Project" update=":centerForm" ajax="true" actionListener="#{navBean.setMenuBarView(2)}"></p:menuitem>
 				</p:submenu>
 			</p:submenu>         	
-        	<p:menuitem value="Settings" update=":centerForm:centerPanel" ajax="true" actionListener="#{menuBean.setView(1)}"></p:menuitem>
+        	<p:menuitem value="Settings" update=":centerForm" ajax="true" actionListener="#{navBean.setMenuBarView(1)}"></p:menuitem>
        
 		</p:menubar>
 	

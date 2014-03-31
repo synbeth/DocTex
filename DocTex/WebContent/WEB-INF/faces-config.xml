@@ -15,13 +15,8 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>menuBean</managed-bean-name>
-		<managed-bean-class>edu.ncsu.beans.MenuBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>sideMenuBean</managed-bean-name>
-		<managed-bean-class>edu.ncsu.beans.SideMenuBean</managed-bean-class>
+		<managed-bean-name>navBean</managed-bean-name>
+		<managed-bean-class>edu.ncsu.beans.NavigationBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<navigation-rule>

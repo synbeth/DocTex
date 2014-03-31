@@ -9,14 +9,14 @@ import edu.ncsu.beans.SideMenuBean;
 
 @ManagedBean
 @SessionScoped
-public class MenuBean {
+public class NavigationBean {
 	
     private int view;
     private String src = "/WEB-INF/auth/welcome";
     
     private SideMenuBean sideMenu;
 
-    public void setView(int viewNum){
+    public void setMenuBarView(int viewNum){
         this.view = viewNum;
 
         if (viewNum == 0)
@@ -29,13 +29,39 @@ public class MenuBean {
         }
     }
     
+    public void setSideMenuView(int viewNum){
+        this.view = viewNum;
+        
+        switch(viewNum){
+        	case 0:
+        		System.out.println("0. Here");
+        		src = "/WEB-INF/auth/welcome";
+        		break;
+        	case 1:
+        		System.out.println("1. Here");
+        		src = "/WEB-INF/auth/existingTemplatesDashboard";
+        		break;
+        	case 2:
+        		System.out.println("2. Here");
+        		src = "/WEB-INF/auth/welcome";
+        		break;
+        	case 3:
+        		System.out.println("3. Here");
+        		src = "/WEB-INF/auth/welcome";
+        		break;
+        	default:
+        		src = "/WEB-INF/auth/welcome";
+        }
+    }
+    
     public String test(){
     	return "Testing!";
     }
     
     public String getSrc()
     {
-        return src;
+        System.out.println("The src is: " + src);
+    	return src;
     }
     public int getView()
     {

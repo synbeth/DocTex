@@ -8,10 +8,10 @@
 
 	<p:panelMenu style="width:200px">  
         <p:submenu label="Select Template">  
-            <p:menuitem value="Choose existing" update=":centerForm:centerPanel" ajax="true" actionListener="#{sideMenuBean.setView(1)}" />  
+            <p:menuitem value="Choose existing" update=":centerForm" ajax="true" actionListener="#{navBean.setSideMenuView(1)}" />  
             <p:submenu label="Custom">
-            	<p:menuitem value="Create new" update=":centerForm:centerPanel" ajax="true" actionListener="#{sideMenuBean.setView(2)}"/>
-            	<p:menuitem value="Load template" update=":centerForm:centerPanel" ajax="true" actionListener="#{sideMenuBean.setView(3)}"/>
+            	<p:menuitem value="Create new" update=":centerForm" ajax="true" actionListener="#{navBean.setSideMenuView(2)}"/>
+            	<p:menuitem value="Load template" update=":centerForm" ajax="true" actionListener="#{navBean.setSideMenuView(3)}"/>
             </p:submenu>  
         </p:submenu>    
     </p:panelMenu>    
