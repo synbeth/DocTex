@@ -14,7 +14,7 @@ public class ThemeSwitcherBean {
    private Map<String, String> themes;
 
    //private String theme= "smoothness";
-   private String theme= "custom-theme-dark";
+   private String theme= "custom-re-dark";
    
 
    public Map<String, String> getThemes() {
@@ -67,6 +67,7 @@ public class ThemeSwitcherBean {
       themes.put("Custom-Blue", "custom-blue");
       themes.put("Custom-Skin", "custom-theme-skin");
       themes.put("Custom-Dark",  "custom-theme-dark");
+      themes.put("Custom-ReDark", "custom-re-dark");
    }
 
 }

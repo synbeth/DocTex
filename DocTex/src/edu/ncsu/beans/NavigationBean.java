@@ -54,6 +54,19 @@ public class NavigationBean {
         }
     }
     
+    public void setSelectedTemplate(int viewNum){
+    	this.view = viewNum;
+    	
+    	switch(viewNum){
+    		case 0:
+    			break;
+    		default:
+    			src = "/WEB-INF/auth/welcome";
+    	}
+    	
+    	
+    }
+    
     public String test(){
     	return "Testing!";
     }
