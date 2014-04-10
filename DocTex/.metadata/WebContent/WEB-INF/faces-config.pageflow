@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13939668559153" configfile="/DocTex/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="122" y="178" id="pf139406870564511" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf139406870564512" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" x="338" y="178" id="pf139406870564513" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf139406870564512" path="/home.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="WEB-INF/templates/menubar.xhtml" id="pf139411999878314" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf139411999878315" path="/WEB-INF/templates/menubar.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="WEB-INF/auth/settings.xhtml" id="pf139411999878316" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf139411999878315" path="/WEB-INF/auth/settings.xhtml"/>
-  <links id="pf139406870564512" target="pf139406870564513" source="pf139406870564511" outcome="login" redirect="true"/>
-  <links id="pf139411999878315" target="pf139411999878316" source="pf139411999878314" outcome="settings"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf13969856369340" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13969856369341" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" id="pf13969856369342" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13969856369341" path="/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB-INF/templates/menubar.xhtml" id="pf13969856369343" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13969856369344" path="/WEB-INF/templates/menubar.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB-INF/auth/settings.xhtml" id="pf13969856369345" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13969856369344" path="/WEB-INF/auth/settings.xhtml"/>
+  <links id="pf13969856369341" target="pf13969856369342" source="pf13969856369340" outcome="login" redirect="true"/>
+  <links id="pf13969856369344" target="pf13969856369345" source="pf13969856369343" outcome="settings"/>
 </pageflow:Pageflow>

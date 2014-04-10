@@ -10,13 +10,13 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>themeSwitcherBean</managed-bean-name>
-		<managed-bean-class>edu.ncsu.beans.ThemeSwitcherBean</managed-bean-class>
+		<managed-bean-name>navBean</managed-bean-name>
+		<managed-bean-class>edu.ncsu.beans.NavigationBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>navBean</managed-bean-name>
-		<managed-bean-class>edu.ncsu.beans.NavigationBean</managed-bean-class>
+		<managed-bean-name>themeSwitcherBean</managed-bean-name>
+		<managed-bean-class>edu.ncsu.beans.ThemeSwitcherBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<navigation-rule>
