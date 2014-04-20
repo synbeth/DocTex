@@ -1,14 +1,8 @@
 package edu.ncsu.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name="templates")
 public class Template {
 	
-	@Id
 	private int temp_id;
 	private int type_id;
 	private String temp_name;

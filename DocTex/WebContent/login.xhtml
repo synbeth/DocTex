@@ -21,14 +21,15 @@
 <h:body styleClass="bimage"> 
     <center>
     <p:panel header="Login Form" style="width: 350px; height: 200px; left:50%; top:50%; transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); position:absolute;">
-        <h:form>
+        <h:form id="loginForm">
+        	<h:message for="loginForm" /><br /> 
             <h:panelGrid columns="2">
                 <h:outputText value="Name"></h:outputText>
-                <h:inputText value="#{loginBean.name}"></h:inputText>
+                <h:inputText id="username" value="#{loginBean.name}"></h:inputText>
                 <h:outputText value="Password"></h:outputText>
-                <h:inputSecret value="#{loginBean.password}"></h:inputSecret>
+                <h:inputSecret id="password" value="#{loginBean.password}"></h:inputSecret>
             </h:panelGrid>
-            <p:commandButton value="Login" action="login" styleClass="ui-priority-primary"></p:commandButton>
+            <p:commandButton value="Login" action="#{loginBean.login}" styleClass="ui-priority-primary"></p:commandButton>
             <h:panelGrid columns="3" style="cellspacing=20px;"> 
             	<h:outputText style="font-size:0.75em;" value="Register new user"></h:outputText>
             	<h:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;"></h:outputText>

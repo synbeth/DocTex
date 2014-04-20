@@ -5,8 +5,7 @@ DROP TABLE IF EXISTS users;
 
 
 CREATE TABLE IF NOT EXISTS users(
-	user_id		BIGINT unsigned NOT NULL AUTO_INCREMENT,
-	username	VARCHAR(20) NOT NULL,
+	user_id		VARCHAR(20) NOT NULL,
 	password	VARCHAR(20) NOT NULL,
 	email		VARCHAR(100) NOT NULL,
 	
@@ -32,7 +31,7 @@ CREATE TABLE IF NOT EXISTS templates(
 
 CREATE TABLE IF NOT EXISTS save_files(
 	file_id		BIGINT unsigned NOT NULL AUTO_INCREMENT,
-	user_id		BIGINT unsigned NOT NULL,
+	user_id		VARCHAR(20) NOT NULL,
 	temp_id		INT unsigned NOT NULL,
 	filename	VARCHAR(20) NOT NULL,
 	pathname	VARCHAR(200) NOT NULL,
@@ -41,4 +40,3 @@ CREATE TABLE IF NOT EXISTS save_files(
 	FOREIGN KEY (user_id) REFERENCES users(user_id),
 	FOREIGN KEY (temp_id) REFERENCES templates(temp_id)
 ) ENGINE = InnoDB;
-
