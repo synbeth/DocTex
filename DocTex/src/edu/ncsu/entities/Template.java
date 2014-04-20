@@ -1,4 +1,4 @@
-package edu.ncsu.beans;
+package edu.ncsu.entities;
 
 
 public class Template {

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="edu.ncsu.entities">
+	<class name="SaveFile" table="save_files">
+		<id name="file_id" column="file_id">
+        	<generator class="native"/>
+        </id>
+        <property name="user_id" />
+        <property name="temp_id" />
+        <property name="filename" />
+        <property name="pathname" />
+	</class>
+	
+</hibernate-mapping>

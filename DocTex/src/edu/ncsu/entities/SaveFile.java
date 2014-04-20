@@ -1,14 +1,7 @@
-package edu.ncsu.beans;
+package edu.ncsu.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="save_files")
 public class SaveFile {
 	
-	@Id
 	private int file_id;
 	private int user_id;
 	private int temp_id;

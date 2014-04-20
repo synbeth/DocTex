@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="edu.ncsu.beans">
+<hibernate-mapping package="edu.ncsu.entities">
 	<class name="Template" table="templates">
 		<id name="temp_id" column="temp_id">
         	<generator class="native"/>

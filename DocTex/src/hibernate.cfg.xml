@@ -31,8 +31,10 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping resource="edu/ncsu/beans/User.hbm.xml"/>
-        <mapping resource="edu/ncsu/beans/Template.hbm.xml"/>
+        <mapping resource="edu/ncsu/entities/User.hbm.xml"/>
+        <mapping resource="edu/ncsu/entities/Template.hbm.xml"/>
+        <mapping resource="edu/ncsu/entities/TemplateType.hbm.xml"/>
+        <mapping resource="edu/ncsu/entities/SaveFile.hbm.xml"/>
 
     </session-factory>
 

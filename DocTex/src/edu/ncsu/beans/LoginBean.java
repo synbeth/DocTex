@@ -6,14 +6,15 @@ import javax.faces.context.FacesContext;
 
 import org.hibernate.Session;
 
+import edu.ncsu.entities.User;
 import edu.ncsu.util.HibernateUtil;
-import edu.ncsu.util.TestDAO;
 
 @ManagedBean(name = "loginBean")
 public class LoginBean {
 
 	private String name;
     private String password;
+    private boolean isLoggedIn = false;
 
     public String getName ()
     {
@@ -46,13 +47,24 @@ public class LoginBean {
     	User user = (User) session.get(User.class, name);
     	session.getTransaction().commit();
     	if (user != null && user.getPassword().equals(this.password)) {
+
+    		isLoggedIn = true;
     		return "success";
     	}
-    	
+
     	FacesContext context = FacesContext.getCurrentInstance(); 
-        FacesMessage message = new FacesMessage("Invalid Username and/or Password"); 
-        context.addMessage("loginForm", message);
+        context.addMessage("loginForm", new FacesMessage("Invalid Username and/or Password"));
         return "failure";
     }
 	
+    public boolean isLoggedIn() {
+    	
+    	return isLoggedIn;
+    }
+    
+    public void logout() {
+    	
+    	isLoggedIn = false;
+    }
+    
 }

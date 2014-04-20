@@ -22,7 +22,9 @@
     <center>
     <p:panel header="Login Form" style="width: 350px; height: 200px; left:50%; top:50%; transform:translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); position:absolute;">
         <h:form id="loginForm">
-        	<h:message for="loginForm" /><br /> 
+        	<h:panelGrid columns="1" style="cellspacing=20px;"> 
+            	<h:message for="loginForm" style="color:red;" />
+            </h:panelGrid>
             <h:panelGrid columns="2">
                 <h:outputText value="Name"></h:outputText>
                 <h:inputText id="username" value="#{loginBean.name}"></h:inputText>
@@ -36,8 +38,7 @@
             	<h:outputText style="font-size:0.75em;" value="Forgot password?"></h:outputText>
             </h:panelGrid>
         </h:form>
-    </p:panel> 
-    <div><h:messages ></h:messages></div>
+    </p:panel>
     </center>   
 </h:body>
 
