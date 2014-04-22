@@ -29,6 +29,7 @@
         <navigation-case>
         	<from-outcome>failure</from-outcome>
         	<to-view-id>/login.xhtml</to-view-id>
+        	<redirect/>
         </navigation-case>
     </navigation-rule>
 	<navigation-rule>

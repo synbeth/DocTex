@@ -52,8 +52,8 @@ public class LoginBean {
     		return "success";
     	}
 
-    	FacesContext context = FacesContext.getCurrentInstance(); 
-        context.addMessage("loginForm", new FacesMessage("Invalid Username and/or Password"));
+    	FacesContext.getCurrentInstance()
+    		.addMessage("loginForm", new FacesMessage("Invalid Username and/or Password"));
         return "failure";
     }
 	
@@ -66,5 +66,4 @@ public class LoginBean {
     	
     	isLoggedIn = false;
     }
-    
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13939668559153" configfile="/DocTex/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf13969856369340" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" outlinks="pf13969856369341 pf13977606813990" inlinks="pf13977606813990" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" id="pf13969856369342" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf13969856369341" path="/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" id="pf13969856369342" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13969856369341" path="/home.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="WEB-INF/templates/menubar.xhtml" id="pf13969856369343" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13969856369344" path="/WEB-INF/templates/menubar.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="WEB-INF/auth/settings.xhtml" id="pf13969856369345" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13969856369344" path="/WEB-INF/auth/settings.xhtml"/>
   <links id="pf13969856369341" target="pf13969856369342" source="pf13969856369340" outcome="success" redirect="true"/>
   <links id="pf13969856369344" target="pf13969856369345" source="pf13969856369343" outcome="settings"/>
-  <links id="pf13977606813990" target="pf13969856369340" source="pf13969856369340" outcome="failure"/>
+  <links id="pf13977606813990" target="pf13969856369340" source="pf13969856369340" outcome="failure" redirect="true"/>
 </pageflow:Pageflow>
