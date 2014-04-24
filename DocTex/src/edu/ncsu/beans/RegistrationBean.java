@@ -77,29 +77,27 @@ public class RegistrationBean {
 	
 	public String register() {
 		
+		FacesContext fc = FacesContext.getCurrentInstance();
     	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     	session.beginTransaction();
     	
     	User user = (User) session.get(User.class, username);
     	session.getTransaction().commit();
     	if (user != null) {
-    		FacesContext.getCurrentInstance()
-    			.addMessage("register_username", new FacesMessage("Username already taken"));
-    		
-    		return "registration_failure";
+    		fc.addMessage("registerUser", new FacesMessage("Username already taken"));
+
+    		return "failure";
     	} else if (this.password == null || this.reTypePassword == null 
-    			&& !this.password.equals(this.reTypePassword)) {
-    		FacesContext.getCurrentInstance()
-    			.addMessage("register_retyped_password", new FacesMessage("Password does not match"));
-    		
-    		return "registration_failure";
+    				|| !this.password.equals(this.reTypePassword)) {
+    		fc.addMessage("registerUser", new FacesMessage("Password does not match"));
+
+    		return "failure";
     	}
     	
     	if (this.email == null || !this.email.matches(EMAIL_PATTERN)) {
-    		FacesContext.getCurrentInstance()
-				.addMessage("register_email", new FacesMessage("Invalid email address"));
-    		
-    		return "registration_failure";
+    		fc.addMessage("registerUser", new FacesMessage("Invalid email address"));
+
+    		return "failure";
     	}
     	
     	User newUser = new User();
@@ -112,6 +110,6 @@ public class RegistrationBean {
     	session.save(newUser);
     	session.getTransaction().commit();
     	
-    	return "registration_success";
+    	return "success";
 	}
 }

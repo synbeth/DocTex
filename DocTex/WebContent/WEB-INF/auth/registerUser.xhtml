@@ -22,9 +22,6 @@
                 <h:inputSecret id="register_retyped_password" value="#{registrationBean.reTypePassword}"></h:inputSecret>
                 <h:outputText value="Email"></h:outputText>
                 <h:inputText id="register_email" value="#{registrationBean.email}"></h:inputText>
-                <h:message for="register_username" style="color:red;" colspan="2" />
-                <h:message for="register_retyped_password" style="color:red;" colspan="2" />
-                <h:message for="register_email" style="color:red;" colspan="2" />
             </h:panelGrid>
             <h:panelGrid columns="3" style="cellspacing=20px;">
             	<p:commandButton value="Register" action="#{registrationBean.register}" styleClass="ui-priority-primary"></p:commandButton>
