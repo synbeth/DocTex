@@ -1,6 +1,13 @@
 package edu.ncsu.beans;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+
+import org.hibernate.Session;
+
+import edu.ncsu.entities.User;
+import edu.ncsu.util.HibernateUtil;
 
 @ManagedBean(name = "RegistrationBean")
 public class RegistrationBean {
@@ -9,6 +16,8 @@ public class RegistrationBean {
 	private String password;
 	private String reTypePassword;
 	private String email;
+	private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
+													"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
 	/**
 	 * @return the username
@@ -16,30 +25,35 @@ public class RegistrationBean {
 	public String getUsername() {
 		return username;
 	}
+	
 	/**
 	 * @param username the username to set
 	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
 	/**
 	 * @return the password
 	 */
 	public String getPassword() {
 		return password;
 	}
+	
 	/**
 	 * @param password the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	/**
 	 * @return the reTypePassword
 	 */
 	public String getReTypePassword() {
 		return reTypePassword;
 	}
+	
 	/**
 	 * @param reTypePassword the password confirmed to set
 	 */
@@ -53,6 +67,7 @@ public class RegistrationBean {
 	public String getEmail() {
 		return email;
 	}
+	
 	/**
 	 * @param email the email to set
 	 */
@@ -62,6 +77,41 @@ public class RegistrationBean {
 	
 	public String register() {
 		
-		return "failure";
+    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+    	session.beginTransaction();
+    	
+    	User user = (User) session.get(User.class, username);
+    	session.getTransaction().commit();
+    	if (user != null) {
+    		FacesContext.getCurrentInstance()
+    			.addMessage("register_username", new FacesMessage("Username already taken"));
+    		
+    		return "registration_failure";
+    	} else if (this.password == null || this.reTypePassword == null 
+    			&& !this.password.equals(this.reTypePassword)) {
+    		FacesContext.getCurrentInstance()
+    			.addMessage("register_retyped_password", new FacesMessage("Password does not match"));
+    		
+    		return "registration_failure";
+    	}
+    	
+    	if (this.email == null || !this.email.matches(EMAIL_PATTERN)) {
+    		FacesContext.getCurrentInstance()
+				.addMessage("register_email", new FacesMessage("Invalid email address"));
+    		
+    		return "registration_failure";
+    	}
+    	
+    	User newUser = new User();
+    	newUser.setEmail(this.email);
+    	newUser.setUser_id(this.username);
+    	newUser.setPassword(this.password);
+    	
+    	session = HibernateUtil.getSessionFactory().getCurrentSession();
+    	session.beginTransaction();
+    	session.save(newUser);
+    	session.getTransaction().commit();
+    	
+    	return "registration_success";
 	}
 }

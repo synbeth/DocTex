@@ -1,14 +1,18 @@
 package edu.ncsu.beans;
 
+import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Session;
 
 import edu.ncsu.entities.User;
 import edu.ncsu.util.HibernateUtil;
 
+@Stateless
 @ManagedBean(name = "loginBean")
 public class LoginBean {
 
@@ -40,7 +44,7 @@ public class LoginBean {
     }
     
     public String login() {
-    	
+        
     	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     	session.beginTransaction();
     	
@@ -54,6 +58,7 @@ public class LoginBean {
 
     	FacesContext.getCurrentInstance()
     		.addMessage("loginForm", new FacesMessage("Invalid Username and/or Password"));
+    	
         return "failure";
     }
 	

@@ -10,7 +10,7 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>RegistrationBean</managed-bean-name>
+		<managed-bean-name>registrationBean</managed-bean-name>
 		<managed-bean-class>edu.ncsu.beans.RegistrationBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
