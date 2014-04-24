@@ -59,6 +59,8 @@ public class NavigationBean {
     	
     	switch(viewNum){
     		case 0:
+    			System.out.println("I am here");
+    			src = "/WEB-INF/auth/latex_templates/resumes/display_resumes";
     			break;
     		default:
     			src = "/WEB-INF/auth/welcome";
