@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
+	
+<h:form id="form">
+<h:body>
+       <h:form id="registerUser">
+        	<h:panelGrid columns="1" style="cellspacing=20px;"> 
+            	<h:message for="registerUser" style="color:red;" />
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <h:outputText value="Username"></h:outputText>
+                <h:inputText id="register_username" value="#{RegistrationBean.username}"></h:inputText>
+                <h:outputText value="Password"></h:outputText>
+                <h:inputSecret id="register_password" value="#{RegistrationBean.password}"></h:inputSecret>
+                <h:outputText value="Retype password"></h:outputText>
+                <h:inputSecret id="register_retyped_password" value="#{RegistrationBean.reTypePassword}"></h:inputSecret>
+                <h:outputText value="Email"></h:outputText>
+                <h:inputSecret id="register_email" value="#{RegistrationBean.email}"></h:inputSecret>
+            </h:panelGrid>
+            <h:panelGrid columns="3" style="cellspacing=20px;">
+            	<p:commandButton value="Register" action="#{RegistrationBean.register()}" styleClass="ui-priority-primary"></p:commandButton>
+            	<h:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;"></h:outputText>
+            	<p:commandButton value="Cancel" onclick="PF('register_new_dialog').hide()" styleClass="ui-priority-primary"></p:commandButton>
+            </h:panelGrid>
+        </h:form>
+</h:body>
+</h:form>
+
+</html>

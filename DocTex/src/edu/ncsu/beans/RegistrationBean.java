@@ -1,9 +1,13 @@
 package edu.ncsu.beans;
 
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean(name = "RegistrationBean")
 public class RegistrationBean {
 	
 	private String username;
 	private String password;
+	private String reTypePassword;
 	private String email;
 	
 	/**
@@ -30,6 +34,19 @@ public class RegistrationBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	/**
+	 * @return the reTypePassword
+	 */
+	public String getReTypePassword() {
+		return reTypePassword;
+	}
+	/**
+	 * @param reTypePassword the password confirmed to set
+	 */
+	public void setReTypePassword(String reTypePassword) {
+		this.reTypePassword = reTypePassword;
+	}
+	
 	/**
 	 * @return the email
 	 */
