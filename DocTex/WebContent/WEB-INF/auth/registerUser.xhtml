@@ -15,16 +15,16 @@
             </h:panelGrid>
             <h:panelGrid columns="2">
                 <h:outputText value="Username"></h:outputText>
-                <h:inputText id="register_username" value="#{RegistrationBean.username}"></h:inputText>
+                <h:inputText id="register_username" value="#{registrationBean.username}"></h:inputText>
                 <h:outputText value="Password"></h:outputText>
-                <h:inputSecret id="register_password" value="#{RegistrationBean.password}"></h:inputSecret>
+                <h:inputSecret id="register_password" value="#{registrationBean.password}"></h:inputSecret>
                 <h:outputText value="Retype password"></h:outputText>
-                <h:inputSecret id="register_retyped_password" value="#{RegistrationBean.reTypePassword}"></h:inputSecret>
+                <h:inputSecret id="register_retyped_password" value="#{registrationBean.reTypePassword}"></h:inputSecret>
                 <h:outputText value="Email"></h:outputText>
-                <h:inputSecret id="register_email" value="#{RegistrationBean.email}"></h:inputSecret>
+                <h:inputText id="register_email" value="#{registrationBean.email}"></h:inputText>
             </h:panelGrid>
             <h:panelGrid columns="3" style="cellspacing=20px;">
-            	<p:commandButton value="Register" action="#{RegistrationBean.register()}" styleClass="ui-priority-primary"></p:commandButton>
+            	<p:commandButton value="Register" action="#{registrationBean.register}" styleClass="ui-priority-primary"></p:commandButton>
             	<h:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;"></h:outputText>
             	<p:commandButton value="Cancel" onclick="PF('register_new_dialog').hide()" styleClass="ui-priority-primary"></p:commandButton>
             </h:panelGrid>
