@@ -33,11 +33,13 @@
             </h:panelGrid>
             <p:commandButton value="Login" action="#{loginBean.login}" styleClass="ui-priority-primary"></p:commandButton>
             <h:panelGrid columns="3" style="cellspacing=20px;"> 
-            	<p:commandLink id="register_new" onclick="PF('register_new_dialog').show();" style="font-size:0.75em;">  
-        			<h:outputText value="Register new user" />  
+            	<p:commandLink id="register_new" onclick="PF('register_new_dialog').show();">  
+        			<h:outputText  style="font-size:0.75em;" value="Register new user" />  
     			</p:commandLink>
             	<h:outputText value="&nbsp;&nbsp;&nbsp;&nbsp;"></h:outputText>
-            	<h:outputText style="font-size:0.75em;" value="Forgot password?"></h:outputText>
+            	<p:commandLink id="forgot_password" onclick="PF('register_new_dialog').show();">
+            		<h:outputText style="font-size:0.75em;" value="Forgot password?"/>
+            	</p:commandLink>
             </h:panelGrid>
         </h:form>
     </p:panel>

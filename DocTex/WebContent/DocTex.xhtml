@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<head>
+	<meta charset="UTF-8"/>
+ 
+ 	<link rel="stylesheet" href="resources/css/immersive-slider.css" type="text/css" />
+	<script src="resources/scripts/jquery-2.1.0.js"></script>
+	<script src="resources/scripts/jquery.immersive-slider.js"></script>
+	
+	<link rel="stylesheet" href="resources/css/square_menu.css" type="text/css" />
+	<script src="resources/scripts/jquery.square_menu.js"></script>
+	
+	<script src="resources/scripts/jquery.label_better.js"></script>
+ 
+	<title>DocTex | Landing Page</title>
+	<meta name="title" content="DocTex Latex Editor | NCSU Entrepreneurial Innovation" />
+	<meta name="description" content="Effortlessly created formatted LaTeX documents at the touch of a button" />
+	<link rel="image_src" href="/images/immersive_slider_image.png" />
+
+	<meta name="author" content="Bethany Vohlers and Alex Wang"/>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'/>
+	
+
+  <style>
+    html {
+      height: 100%;
+    }
+    body {
+      background: #f3f3f3;
+      padding: 0;
+      text-align: center;
+      font-family: 'open sans';
+      position: relative;
+      margin: 0;
+      height: 100%;
+    }
+    
+    .wrapper {
+    	height: auto !important;
+    	height: 100%;
+    	margin: 0 auto; 
+    	overflow: hidden;
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    
+    
+    h1, h2 {
+      width: 100%;
+      float: left;
+    }
+    h1 {
+      margin-top: 25px;
+      color: #444;
+      margin-bottom: 5px;
+      font-size: 50px;
+      letter-spacing: -4px;
+    }
+    h2 {
+      color: #444;
+      font-weight: 100;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .pointer {
+      color: #9b59b6;
+      font-family: 'Pacifico', cursive;
+      font-size: 30px;
+      margin-top: 15px;
+    }
+    pre {
+      margin: 80px auto;
+    }
+    pre code {
+      padding: 35px;
+      border-radius: 5px;
+      font-size: 15px;
+      background: rgba(0,0,0,0.1);
+      border: rgba(0,0,0,0.05) 5px solid;
+      max-width: 500px;
+    }
+
+
+    .main {
+      float: left;
+      width: 100%;
+      margin: 0 auto;
+      background: #161923;
+    }
+    
+    .main h1 {
+      padding:20px 50px;
+      float: left;
+      width: 100%;
+      font-size: 90px;
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      font-weight: 100;
+      color: black;
+      margin: 0;
+      margin-top: 70px;
+      font-family: 'Playfair Display';
+      letter-spacing: -1px;
+    }
+   
+    .main h1.demo1 {
+      background: #1ABC9C;
+    }
+    
+    .reload.bell {
+      font-size: 12px;
+      padding: 20px;
+      width: 45px;
+      text-align: center;
+      height: 47px;
+      border-radius: 50px;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+    }
+    
+    .reload.bell #notification {
+      font-size: 25px;
+      line-height: 140%;
+    }
+    
+    .reload, .btn{
+      display: inline-block;
+      border: 4px solid #A2261E;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      background: #CC3126;
+      display: inline-block;
+      line-height: 100%;
+      padding: 0.7em;
+      text-decoration: none;
+      color: #fff;
+      width: 100px;
+      line-height: 140%;
+      font-size: 17px;
+      font-family: open sans;
+      font-weight: bold;
+    }
+    .reload:hover{
+      background: #A2261E;
+    }
+    .btn {
+      width: 200px;
+      color: #fff;
+      border: none;
+      margin-left: 10px;
+      background: black;
+    }
+    .clear {
+      width: auto;
+    }
+    .btn:hover, .btn:hover {
+      background: rgba(0,0,0,0.8);
+    }
+    .btns {
+      width: 410px;
+      margin: 50px auto;
+    }
+    .credit {
+      text-align: center;
+      color: #444;
+      padding: 10px;
+      margin: 0 0 0 0;
+      background: #161923;
+      color: #FFF;
+      float: left;
+      width: 100%;
+    }
+    .credit a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      display: block;
+      padding: 7px;
+      width: 100%;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.25);
+      font-weight: bold;
+      font-size: 13px;
+      color: #000;
+      -webkit-transition: all 200ms ease-out;
+      -moz-transition: all 200ms ease-out;
+      -o-transition: all 200ms ease-out;
+      transition: all 200ms ease-out;
+    }
+    .back:hover {
+      color: black;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    
+    
+    .page_container {
+      max-width: 960px;
+      margin: 50px auto;
+    }
+
+    .header {
+      background: white;
+      padding-top: 10px;
+      margin-bottom: 0;
+    }
+    .header h1{
+      margin-bottom: 0;
+      font-size: 45px;
+    }
+
+    .header .menu {
+      padding-bottom: 10px;
+    }
+
+    .benefits {
+      color: black;
+      height: 100px;
+      background: #FFF;
+      position: relative;
+      width: 100%;
+      padding: 25px;
+      font-size: 40px;
+      font-weight: 100;
+      float: left;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+
+    .benefits .page_container{
+      margin-bottom: 50px;
+      margin-top: 0;
+    }
+  
+    .immersive_slider .is-slide .content h2{
+      line-height: 140%;
+      font-weight: 100;
+      color: white;
+      font-weight: 100;
+    }
+    .immersive_slider .is-slide .content a {
+      color: white;
+    }
+  
+  .immersive_slider .is-slide .content p{
+    float: left;
+    font-weight: 100;
+    width: 100%;
+    font-size: 17px;
+    margin-top: 5px;
+  }
+  
+  #top_panel table td {
+    text-align: center;
+  }
+  
+  #textarea_2::-webkit-input-placeholder{
+  color:    #666666;
+	}
+  
+      .bl_form {
+      margin: 150px 0;
+    }
+    
+    .bl_form input {
+      padding-top: 15px;
+      background: rgba(255,255,255,0.10);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 25px;
+      font-size: 16px;
+      outline: none;
+    }
+
+
+    .lb_wrap .lb_label.top, .lb_wrap .lb_label.bottom {
+      left: 15px !important;
+    }
+
+    .lb_wrap .lb_label.left {
+      left: 0;
+    }
+
+    .lb_label {
+      font-weight: bold;
+      color: #666;
+    }
+
+    .lb_label.active {
+      color: #FFF;
+    }
+    
+    ::-webkit-input-placeholder {
+   		color: rgb(95,95,95);
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+   		color: rgb(95,95,95);  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+   		color: rgb(95,95,95);  
+	}
+
+	:-ms-input-placeholder {  
+   		color: rgb(95,95,95);  
+	}
+    
+	</style>
+
+	   <script>
+		  $(document).ready( function() {
+			    $("input.label_better").label_better({
+			      easing: "bounce"
+			    });
+			  });
+	   
+  	  	 /*$("input.label_better").label_better({
+  	    		position: "left", // This will let you define the position where the label will appear when the user clicked on the input fields. Acceptable options are "top", "bottom", "left" and "right". Default value is "top".
+  	    		animationTime: 500, // This will let you control the animation speed when the label appear. This option accepts value in milliseconds. The default value is 500.
+  	    		easing: "ease", // This option will let you define the CSS easing you would like to see animating the label. The option accepts all default CSS easing such as "linear", "ease" etc. Another extra option is you can use is "bounce". The default value is "ease-in-out".
+  	    		offset: 20, // You can add more spacing between the input and the label. This option accepts value in pixels (without the unit). The default value is 20.
+  	    		hidePlaceholderOnFocus: true // The default placeholder text will hide on focus
+  	      });*/
+        </script>
+     
+     
+</head>
+<body>
+	<div class="wrapper">
+    <!-- <header> -->
+      <form id="title_text">
+      <h:panelGrid columns="3" style="cellspacing=20px; margin: 0 auto;" id="top_panel" width="100%">
+      	<p:commandLink id="register_btn" ajax="true" onclick="$('.sidemenu').openMenu();">  
+        	<h:outputText value="Register now" id="tester"/>  
+    	</p:commandLink>
+      	<h1>DocTex <img src="resources/images/LaTeXlogo.png"  height="60px"/> Formatter</h1>
+      	<p:commandLink id="login_btn" onclick="alert('dad');">  
+        	<h:outputText value="Login here" />  
+    	</p:commandLink>
+      </h:panelGrid>
+      </form>
+      
+
+      
+      <h2>Effortlessly create professional <img src="resources/images/LaTeXlogo.png"  height="25px"/> documents with easy-to-use templates</h2>
+      <p class="credit">Created by <b>Bethany Vohlers</b> &amp; <b>Alex Wang</b></p>
+      
+      
+      
+    <!-- </header> -->
+    <div class="main">
+      <div class="page_container">
+        <div id="immersive_slider">
+          <div class="slide" data-blurred="resources/images/blurred_edited.png">
+            <div class="content">
+              <h2><a>The DocTex Model</a></h2>
+              <p>It&#39;s never been easier to create professional documents at the touch of a button.
+              Upload your favorite templates or choose from our vast collection to auto-format your documents. It&#39;s easy. No scripts, no editors, no nothing. Register today.</p>
+            </div>
+             <div class="image">
+              <!-- <a href="http://www.bucketlistly.com" target="_blank"> -->
+                <img src="resources/images/woman_keyboard.jpg" alt="Slider 1"/>
+              <!-- </a> -->
+            </div>
+          </div>
+          <div class="slide" data-blurred="resources/images/slide2_blurred.jpg">
+            <div class="content">
+              <h2><a href="http://www.bucketlistly.com/apps" target="_blank">BucketListly Apps</a></h2>
+              <p>It&#39;s never been easier to watch YouTube on the big screen
+              Send your favorite YouTube videos from your Android phone or tablet to TV with the touch of a button. It&#39;s easy. No wires, no setup, no nothing. Find out more here.</p>
+            </div>
+            <div class="image">
+             <a href="http://www.bucketlistly.com/apps" target="_blank"> <img src="resources/images/slide2.jpg" alt="Slider 1"/></a>
+            </div>
+          </div>
+          <div class="slide" data-blurred="resources/images/slide3_blurred.jpg">
+            <div class="content">
+              <h2><a href="http://www.thepetedesign.com" target="_blank">The Pete Design</a></h2>
+              <p>It&#39;s never been easier to watch YouTube on the big screen
+              Send your favorite YouTube videos from your Android phone or tablet to TV with the touch of a button. It&#39;s easy. No wires, no setup, no nothing. Find out more here.</p>
+            </div>
+            <div class="image">
+              <a href="http://www.thepetedesign.com" target="_blank"><img src="resources/images/slide3.jpg" alt="Slider 1"/></a>
+            </div>
+          </div>
+          
+          <a href="#" class="is-prev">&#171;</a>
+          <a href="#" class="is-next">&#187;</a>
+        </div>
+      </div>
+  	</div>
+  	<div class="benefits">
+      <div class="page_container">
+
+  	  </div>
+  	</div>
+  	<script type="text/javascript">
+  	  $(document).ready( function() {
+  	    $("#immersive_slider").immersive_slider({
+    	  animation: "slide", // As usual, you can change the animation to these: slide (default), bounce, fade, slideUp, and bounceUp
+  	      //slideSelector: ".slide", // This option will let you assign custom selector for each slides in case .slide is already taken
+  	      container: ".main", // This option lets you define the container of which the background will appear. Make sure the slider is inside this container as well.
+  	      //cssBlur: false, // Experimental: In case you don't want to keep adding new data-blurred attributes, trigger this to true and it will generate the blur image on the fly (more info below).
+  	      //pagination: true, // Toggle this to false if you don't want a pagination
+  	      //loop: true, // Toggle to false if you don't want the slider to loop. Default is true.
+  	      autoStart: false // Define the number of milliseconds before it navigates automatically. Change this to 0 or false to disable autoStart. The default value is 5000.
+  	    });
+  	  });
+
+    </script>
+  </div>
+    
+  <!-- ########################################################################################### -->
+  
+  <div class="page-container">
+        <div class="sidemenu">
+          <nav class="left">
+            <h:outputText value="Be a part of a growing community of formatters"/>
+          </nav>
+          <nav class="right">
+          		<div class="page-container">
+    	    		<form class="bl_form">
+        				<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username"/>
+          				<!-- <input type="email" value="pete@abcdefg.com"  class="label_better" data-new-placeholder="Email Address" placeholder="Email Address" id="email"/>
+          				<input type="password" value="abcdefg"  class="label_better" data-new-placeholder="Password" placeholder="Password" id="password"/>
+          				<input type="password" value="abcdefg" class="label_better" data-new-placeholder="Shhh.." placeholder="Confirm Password" id="confirm"/>-->
+        			</form>
+      			</div>
+          
+    			<!-- <ui:include src="/WEB-INF/auth/registerUserLandingPage.xhtml"/> -->
+          </nav>
+        </div>
+      </div>
+      <script type="text/javascript">
+      	$(".sidemenu").square_menu({
+    		flyDirection: "top", // The direction where the menu will fly from. Available options are "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left" and "bottom-right". The default value is "bottom".
+    		button: false, // You can define text inside the auto-generated button here. If you want to prevent the plugin from generating a menu button, change this to false. The default value is "Menu".
+    		animationStyle: "vertical", // The type of animation style you will see after it flew in. Available options are "vertical" which expands vertically and "horizontal" which expands horizontally. Vertical works best with "top" or "bottom" flyDirection whereas Horizontal works best with "left" or "right" flyDirection. The default value is "vertical".
+    		closeButton: "X" // You can define the content of the close button appears after animates are completed here. Change this to false to hide the close button. The default value is X.
+  		});
+     </script>
+
+  
+  
+	
+</body>
+</html>
