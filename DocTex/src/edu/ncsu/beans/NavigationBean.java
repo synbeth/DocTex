@@ -54,7 +54,7 @@ public class NavigationBean {
         }
     }
     
-    public void setSelectedTemplate(int viewNum){
+    public void setSelectedTemplateType(int viewNum){
     	this.view = viewNum;
     	
     	switch(viewNum){
@@ -66,6 +66,19 @@ public class NavigationBean {
     			src = "/WEB-INF/auth/welcome";
     	}
     	
+    	
+    }
+    
+    public void setSelectedTemplate(int viewNum) {
+    	this.view = viewNum;
+    	
+    	switch (viewNum) {
+    		case 0:
+    			src = "/WEB-INF/auth/latex_templates/resumes/display_resume_0";
+    			break;
+    		default:
+    			src = "/WEB-INF/auth/welcome";
+    	}
     	
     }
     

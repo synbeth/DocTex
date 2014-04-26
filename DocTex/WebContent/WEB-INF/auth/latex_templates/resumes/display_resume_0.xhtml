@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
+
+<h:form id="form">
+ 
+    <p:panel id="contact_section" header="Resume Template 1: Contact Information" style="margin-bottom:10px;">
+        <p:messages id="messages" />
+ 
+        <h:panelGrid columns="3">
+            <h:outputLabel for="firstname" value="First Name: " />
+            <p:inputText id="firstname" value="#{resumeTemplateBean.firstname}" required="true"/>
+            <p:message for="firstname" />
+ 
+            <h:outputLabel for="lastname" value="Last Name: " />
+            <p:inputText id="lastname" value="#{resumeTemplateBean.lastname}" required="true"/>
+            <p:message for="lastname" />
+ 
+            <h:outputLabel for="street" value="Street Address: " />
+            <p:inputText id="street" value="#{resumeTemplateBean.street}" required="true"/>
+            <p:message for="street" />
+ 			
+ 			<h:outputLabel for="city" value="City: " />
+ 			<p:inputText id="city" value="#{resumeTemplateBean.city}" required="true"/>
+ 			<p:message for="city" />
+ 			
+ 			<h:outputLabel for="state" value="State: " />
+ 			<h:selectOneMenu id="state" value="#{resumeTemplateBean.state}" required="true">
+                <f:selectItem itemLabel="Select One" itemValue="" />
+                <f:selectItem itemLabel="Alabama" itemValue="AL" />
+                <f:selectItem itemLabel="Alaska" itemValue="AK" />
+                <f:selectItem itemLabel="Arizona" itemValue="AZ" />
+                <f:selectItem itemLabel="Arkansas" itemValue="AR" />
+                <f:selectItem itemLabel="California" itemValue="CA" />
+                <f:selectItem itemLabel="Colorado" itemValue="CO" />
+                <f:selectItem itemLabel="Connecticut" itemValue="CT" />
+                <f:selectItem itemLabel="Delaware" itemValue="DE" />
+                <f:selectItem itemLabel="Florida" itemValue="FL" />
+                <f:selectItem itemLabel="Georgia" itemValue="GA" />
+                <f:selectItem itemLabel="Hawaii" itemValue="HI" />
+                <f:selectItem itemLabel="Idaho" itemValue="ID" />
+                <f:selectItem itemLabel="Illinois" itemValue="IL" />
+                <f:selectItem itemLabel="Indiana" itemValue="IN" />
+                <f:selectItem itemLabel="Iowa" itemValue="IA" />
+                <f:selectItem itemLabel="Kansas" itemValue="KS" />
+                <f:selectItem itemLabel="Kentucky" itemValue="KY" />
+                <f:selectItem itemLabel="Louisiana" itemValue="LA" />
+                <f:selectItem itemLabel="Maine" itemValue="ME" />
+                <f:selectItem itemLabel="Maryland" itemValue="MD" />
+                <f:selectItem itemLabel="Massachusetts" itemValue="MA" />
+                <f:selectItem itemLabel="Michigan" itemValue="MI" />
+                <f:selectItem itemLabel="Minnesota" itemValue="MN" />
+                <f:selectItem itemLabel="Mississippi" itemValue="MS" />
+                <f:selectItem itemLabel="Missouri" itemValue="MO" />
+                <f:selectItem itemLabel="Montana" itemValue="MT" />
+                <f:selectItem itemLabel="Nebraska" itemValue="NE" />
+                <f:selectItem itemLabel="Nevada" itemValue="NV" />
+                <f:selectItem itemLabel="New Hampshire" itemValue="NH" />
+                <f:selectItem itemLabel="New Jersey" itemValue="NJ" />
+                <f:selectItem itemLabel="New Mexico" itemValue="NM" />
+                <f:selectItem itemLabel="New York" itemValue="NY" />
+                <f:selectItem itemLabel="North Carolina" itemValue="NC" />
+                <f:selectItem itemLabel="North Dakota" itemValue="ND" />
+                <f:selectItem itemLabel="Ohio" itemValue="OH" />
+                <f:selectItem itemLabel="Oklahoma" itemValue="OK" />
+                <f:selectItem itemLabel="Oregon" itemValue="OR" />
+                <f:selectItem itemLabel="Pennsylvania" itemValue="PA" />
+                <f:selectItem itemLabel="Rhode Island" itemValue="RI" />
+                <f:selectItem itemLabel="South Carolina" itemValue="SC" />
+                <f:selectItem itemLabel="South Dakota" itemValue="SD" />
+                <f:selectItem itemLabel="Tennessee" itemValue="TN" />
+                <f:selectItem itemLabel="Texas" itemValue="TX" />
+                <f:selectItem itemLabel="Utah" itemValue="UT" />
+                <f:selectItem itemLabel="Vermont" itemValue="VT" />
+                <f:selectItem itemLabel="Virginia" itemValue="VA" />
+                <f:selectItem itemLabel="Washington" itemValue="WA" />
+                <f:selectItem itemLabel="West Virginia" itemValue="WV" />
+                <f:selectItem itemLabel="Wisconson" itemValue="WI" />
+                <f:selectItem itemLabel="Wyoming" itemValue="WY" />
+            </h:selectOneMenu>
+ 			<p:message for="state" />
+ 			
+ 			<h:outputLabel for="zip" value="Zip: " />
+ 			<p:inputText id="zip" value="#{resumeTemplateBean.zip}" required="true">
+ 				<f:validateLength minimum="5" />
+ 			</p:inputText>
+ 			<p:message for="zip" />
+ 			
+ 			<h:outputLabel for="phone" value="Phone Number: " />
+ 			<p:inputText id="phone" value="#{resumeTemplateBean.phone}" required="true"/>
+ 			<p:message for="phone" />
+        </h:panelGrid>
+    </p:panel>
+ 	
+ 	<p:panel id="objective_section" header="Objective" style="margin-bottom:10px;">
+        <h:panelGrid columns="3">
+            <h:outputLabel for="objective" value="Objective: " style="position:relative; top:-20px;"/>
+            <p:inputTextarea id="objective" value="#{resumeTemplateBean.objective}" required="true"/>
+            <p:message for="objective" />
+        </h:panelGrid>
+    </p:panel>
+    
+    <p:panel id="education_section" header="Education" style="margin-bottom:10px;">
+        <h:panelGrid columns="3">
+            <h:outputLabel for="degreeType" value="Degree Type: "/>
+            <p:inputText id="degreeType" value="#{resumeTemplateBean.degree}" required="true"/>
+            <p:message for="degreeType" />
+            <h:outputLabel for="major" value="Major: "/>
+            <p:inputText id="major" value="#{resumeTemplateBean.major}" required="true"/>
+            <p:message for="major" />
+            <h:outputLabel for="school" value="Institution Name and Location: "/>
+            <p:inputText id="school" value="#{resumeTemplateBean.school}" required="true"/>
+            <p:message for="school" />
+            <h:outputLabel for="graduation" value="Graduation Date: "/>
+            <p:inputText id="graduation" value="#{resumeTemplateBean.graduation}" required="true"/>
+            <p:message for="graduation" />
+        </h:panelGrid>
+    </p:panel>
+    
+    <p:panel id="skills_section" header="Skills" style="margin-bottom:10px;">
+        <h:panelGrid columns="3">
+            <h:outputLabel for="skillType1" value="Skill Type 1: "/>
+            <p:inputText id="skillType1" value="#{resumeTemplateBean.skillTypeOne}" required="true"/>
+            <p:message for="skillType1" />
+            <h:outputLabel for="skills1" value="Skill Type 1 Skills: " style="position:relative; top:-20px;"/>
+            <p:inputTextarea id="skills1" value="#{resumeTemplateBean.skillsOne}" required="true"/>
+            <p:message for="skills1" />
+            <h:outputLabel for="skillType2" value="Skill Type 2: "/>
+            <p:inputText id="skillType2" value="#{resumeTemplateBean.skillTypeTwo}" required="true"/>
+            <p:message for="skillType2" />
+            <h:outputLabel for="skills2" value="Skill Type 2 Skills: " style="position:relative; top:-20px;"/>
+            <p:inputTextarea id="skills2" value="#{resumeTemplateBean.skillsTwo}" required="true"/>
+            <p:message for="skills2" />
+        </h:panelGrid>
+    </p:panel>
+</h:form>
+
+</html>
