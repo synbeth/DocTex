@@ -2,7 +2,7 @@ package edu.ncsu.beans;
 
 public class ResumeTemplateBean {
 	
-	private String template;
+	private String template = "/WEB-INF/auth/latex_templates/resumes/cv_2.tex";
 	private String firstname;
 	private String lastname;
 	private String street;
@@ -19,6 +19,22 @@ public class ResumeTemplateBean {
 	private String skillsOne;
 	private String skillTypeTwo;
 	private String skillsTwo;
+	private String jobTitleOne;
+	private String jobOneInstitution;
+	private String jobOneDate;
+	private String jobOneDescr;
+	private String jobTitleTwo;
+	private String jobTwoInstitution;
+	private String jobTwoDate;
+	private String jobTwoDescr;
+	private String jobTitleThree;
+	private String jobThreeInstitution;
+	private String jobThreeDate;
+	private String jobThreeDescr;
+	private String customTitle;
+	private String customFieldOne;
+	private String customFieldTwo;
+	private String customFieldThree;
 	
 	public String getTemplate() {
 		return template;
@@ -155,6 +171,138 @@ public class ResumeTemplateBean {
 	public void setSkillsTwo(String skillsTwo) {
 		this.skillsTwo = skillsTwo;
 	}
+
+	public String getJobTitleOne() {
+		return jobTitleOne;
+	}
+
+	public void setJobTitleOne(String jobTitleOne) {
+		this.jobTitleOne = jobTitleOne;
+	}
+
+	public String getJobOneDate() {
+		return jobOneDate;
+	}
+
+	public void setJobOneDate(String jobOneDate) {
+		this.jobOneDate = jobOneDate;
+	}
+
+	public String getJobOneDescr() {
+		return jobOneDescr;
+	}
+
+	public void setJobOneDescr(String jobOneDescr) {
+		this.jobOneDescr = jobOneDescr;
+	}
+
+	public String getJobTitleTwo() {
+		return jobTitleTwo;
+	}
+
+	public void setJobTitleTwo(String jobTitleTwo) {
+		this.jobTitleTwo = jobTitleTwo;
+	}
+
+	public String getJobTwoDate() {
+		return jobTwoDate;
+	}
+
+	public void setJobTwoDate(String jobTwoDate) {
+		this.jobTwoDate = jobTwoDate;
+	}
+
+	public String getJobTwoDescr() {
+		return jobTwoDescr;
+	}
+
+	public void setJobTwoDescr(String jobTwoDescr) {
+		this.jobTwoDescr = jobTwoDescr;
+	}
+
+	public String getJobTitleThree() {
+		return jobTitleThree;
+	}
+
+	public void setJobTitleThree(String jobTitleThree) {
+		this.jobTitleThree = jobTitleThree;
+	}
+
+	public String getJobThreeDate() {
+		return jobThreeDate;
+	}
+
+	public void setJobThreeDate(String jobThreeDate) {
+		this.jobThreeDate = jobThreeDate;
+	}
+
+	public String getJobThreeDescr() {
+		return jobThreeDescr;
+	}
+
+	public void setJobThreeDescr(String jobThreeDescr) {
+		this.jobThreeDescr = jobThreeDescr;
+	}
+
+	public String getCustomTitle() {
+		return customTitle;
+	}
+
+	public void setCustomTitle(String customTitle) {
+		this.customTitle = customTitle;
+	}
+
+	public String getCustomFieldOne() {
+		return customFieldOne;
+	}
+
+	public void setCustomFieldOne(String customFieldOne) {
+		this.customFieldOne = customFieldOne;
+	}
+
+	public String getCustomFieldTwo() {
+		return customFieldTwo;
+	}
+
+	public void setCustomFieldTwo(String customFieldTwo) {
+		this.customFieldTwo = customFieldTwo;
+	}
+
+	public String getCustomFieldThree() {
+		return customFieldThree;
+	}
+
+	public void setCustomFieldThree(String customFieldThree) {
+		this.customFieldThree = customFieldThree;
+	}
 	
-	
+	public String generate() {
+		
+		
+		return "failure";
+	}
+
+	public String getJobOneInstitution() {
+		return jobOneInstitution;
+	}
+
+	public void setJobOneInstitution(String jobOneInstitution) {
+		this.jobOneInstitution = jobOneInstitution;
+	}
+
+	public String getJobTwoInstitution() {
+		return jobTwoInstitution;
+	}
+
+	public void setJobTwoInstitution(String jobTwoInstitution) {
+		this.jobTwoInstitution = jobTwoInstitution;
+	}
+
+	public String getJobThreeInstitution() {
+		return jobThreeInstitution;
+	}
+
+	public void setJobThreeInstitution(String jobThreeInstitution) {
+		this.jobThreeInstitution = jobThreeInstitution;
+	}
 }

@@ -138,6 +138,66 @@
             <p:message for="skills2" />
         </h:panelGrid>
     </p:panel>
+    
+    <p:panel id="experience_section" header="Experience" style="margin-bottom:10px;">
+        <h:panelGrid columns="3">
+            <h:outputLabel for="jobTitle1" value="Job Title 1: "/>
+            <p:inputText id="jobTitle1" value="#{resumeTemplateBean.jobTitleOne}" required="true"/>
+            <p:message for="jobTitle1" />
+            <h:outputLabel for="job1Date" value="Time Held Job 1: "/>
+            <p:inputText id="job1Date" value="#{resumeTemplateBean.jobOneDate}" required="true"/>
+            <p:message for="job1Date" />
+            <h:outputLabel for="job1Institution" value="Institution for Job 1: "/>
+            <p:inputText id="job1Institution" value="#{resumeTemplateBean.jobOneInstitution}" required="true"/>
+            <p:message for="job1Institution" />
+            <h:outputLabel for="job1Descr" value="Job 1 Description: " style="position:relative; top:-20px;"/>
+            <p:inputTextarea id="job1Descr" value="#{resumeTemplateBean.jobOneDescr}" required="true"/>
+            <p:message for="job1Descr" />
+            <h:outputLabel for="jobTitle2" value="Job Title 2: "/>
+            <p:inputText id="jobTitle2" value="#{resumeTemplateBean.jobTitleTwo}" required="true"/>
+            <p:message for="jobTitle2" />
+            <h:outputLabel for="job2Date" value="Time Held Job 2: "/>
+            <p:inputText id="job2Date" value="#{resumeTemplateBean.jobTwoDate}" required="true"/>
+            <p:message for="job2Date" />
+            <h:outputLabel for="job2Institution" value="Institution for Job 2: "/>
+            <p:inputText id="job2Institution" value="#{resumeTemplateBean.jobTwoInstitution}" required="true"/>
+            <p:message for="job2Institution" />
+            <h:outputLabel for="job2Descr" value="Job 2 Description: " style="position:relative; top:-20px;"/>
+            <p:inputTextarea id="job2Descr" value="#{resumeTemplateBean.jobTwoDescr}" required="true"/>
+            <p:message for="job2Descr" />
+            <h:outputLabel for="jobTitle3" value="Job Title 3: "/>
+            <p:inputText id="jobTitle3" value="#{resumeTemplateBean.jobTitleThree}" required="true"/>
+            <p:message for="jobTitle3" />
+            <h:outputLabel for="job3Date" value="Time Held Job 3: "/>
+            <p:inputText id="job3Date" value="#{resumeTemplateBean.jobThreeDate}" required="true"/>
+            <p:message for="job3Date" />
+            <h:outputLabel for="job3Institution" value="Institution for Job 3: "/>
+            <p:inputText id="job3Institution" value="#{resumeTemplateBean.jobThreeInstitution}" required="true"/>
+            <p:message for="job3Institution" />
+            <h:outputLabel for="job3Descr" value="Job 3 Description: " style="position:relative; top:-20px;"/>
+            <p:inputTextarea id="job3Descr" value="#{resumeTemplateBean.jobThreeDescr}" required="true"/>
+            <p:message for="job3Descr" />
+        </h:panelGrid>
+    </p:panel>
+    
+    <p:panel id="custom_section" header="Custom Section" style="margin-bottom:10px;">
+        <h:panelGrid columns="3">
+            <h:outputLabel for="customTitle" value="Custom Section Name: "/>
+            <p:inputText id="customTitle" value="#{resumeTemplateBean.customTitle}" required="true"/>
+            <p:message for="customTitle" />
+            <h:outputLabel for="customField1" value="Custom Field 1: " style="position:relative; top:-20px;"/>
+            <p:inputTextarea id="customField1" value="#{resumeTemplateBean.customFieldOne}" required="true"/>
+            <p:message for="customField1" />
+            <h:outputLabel for="customField2" value="Custom Field 2: " style="position:relative; top:-20px;"/>
+            <p:inputTextarea id="customField2" value="#{resumeTemplateBean.customFieldTwo}" required="true"/>
+            <p:message for="customField2" />
+            <h:outputLabel for="customField3" value="Custom Field 3: " style="position:relative; top:-20px;"/>
+            <p:inputTextarea id="customField3" value="#{resumeTemplateBean.customFieldThree}" required="true"/>
+            <p:message for="customField3" />
+        </h:panelGrid>
+    </p:panel>
+    
+    <p:commandButton value="Generate Resume" action="#{resumeTemplateBean.generate}" styleClass="ui-priority-primary"></p:commandButton>
 </h:form>
 
 </html>
