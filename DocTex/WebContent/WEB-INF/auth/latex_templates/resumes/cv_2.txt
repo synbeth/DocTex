@@ -70,7 +70,8 @@ SCHOOL_FIELD, graduated GRADUATION_FIELD \\
 
 {\sl SKILL_TYPE_1_FIELD} 
 SKILLS_1_FIELD \\
-{\sl SKILL_TYPE_2_FIELD:} SKILLS_2_FIELD
+{\sl SKILL_TYPE_2_FIELD:} 
+SKILLS_2_FIELD
  
 %----------------------------------------------------------------------------------------
 %	PROFESSIONAL EXPERIENCE SECTION
@@ -100,7 +101,7 @@ JOB_3_INSTITUTION
 %	CUSTOM SECTION
 %----------------------------------------------------------------------------------------
 
-\section{CUSTOM_SECTION_TITLE} 
+\section{CS_TITLE_FIELD} 
 
 CUSTOM_FIELD_1 \\
 CUSTOM_FIELD_2 \\

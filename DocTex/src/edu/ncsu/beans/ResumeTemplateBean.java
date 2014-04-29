@@ -1,8 +1,16 @@
 package edu.ncsu.beans;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
 public class ResumeTemplateBean {
 	
-	private String template = "/WEB-INF/auth/latex_templates/resumes/cv_2.tex";
+	private String template = "/WEB-INF/auth/latex_templates/resumes/cv_2.txt";
 	private String firstname;
 	private String lastname;
 	private String street;
@@ -275,12 +283,6 @@ public class ResumeTemplateBean {
 	public void setCustomFieldThree(String customFieldThree) {
 		this.customFieldThree = customFieldThree;
 	}
-	
-	public String generate() {
-		
-		
-		return "failure";
-	}
 
 	public String getJobOneInstitution() {
 		return jobOneInstitution;
@@ -304,5 +306,77 @@ public class ResumeTemplateBean {
 
 	public void setJobThreeInstitution(String jobThreeInstitution) {
 		this.jobThreeInstitution = jobThreeInstitution;
+	}
+	
+	
+	public String generate() {
+		String templateFile;
+		
+		try {
+			templateFile = new String(Files.readAllBytes(Paths.get(template)));
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+			return "failure";
+		}
+		
+		templateFile = templateFile.replaceAll("FIRST_NAME", this.firstname);
+		templateFile = templateFile.replaceAll("LAST_NAME", this.lastname);
+		templateFile = templateFile.replaceAll("STREET_FIELD", this.street);
+		templateFile = templateFile.replaceAll("CITY_FIELD", this.city);
+		templateFile = templateFile.replaceAll("STATE_FIELD", this.state);
+		templateFile = templateFile.replaceAll("ZIP_FIELD", this.zip);
+		templateFile = templateFile.replaceAll("PHONE_FIELD", this.phone);
+		templateFile = templateFile.replaceAll("OBJ_DESCR_FIELD", this.objective);
+		templateFile = templateFile.replaceAll("DEGREE_FIELD", this.degree);
+		templateFile = templateFile.replaceAll("MAJOR_FIELD", this.major);
+		templateFile = templateFile.replaceAll("SCHOOL_FIELD", this.school);
+		templateFile = templateFile.replaceAll("GRADUATION_FIELD", this.graduation);
+		templateFile = templateFile.replaceAll("SKILL_TYPE_1_FIELD", this.skillTypeOne);
+		templateFile = templateFile.replaceAll("SKILLS_1_FIELD", this.skillsOne);
+		templateFile = templateFile.replaceAll("SKILL_TYPE_2_FIELD", this.skillTypeTwo);
+		templateFile = templateFile.replaceAll("SKILLS_2_FIELD", this.skillTypeTwo);
+		templateFile = templateFile.replaceAll("JOB_TITLE_1", this.jobTitleOne);
+		templateFile = templateFile.replaceAll("JOB_1_DATE", this.jobOneDate);
+		templateFile = templateFile.replaceAll("JOB_1_INSTITUTION", this.jobOneInstitution);
+		templateFile = templateFile.replaceAll("JOB_1_DESCR", this.jobOneDescr);
+		templateFile = templateFile.replaceAll("JOB_TITLE_2", this.jobTitleTwo);
+		templateFile = templateFile.replaceAll("JOB_2_DATE", this.jobTwoDate);
+		templateFile = templateFile.replaceAll("JOB_2_INSTITUTION", this.jobTwoInstitution);
+		templateFile = templateFile.replaceAll("JOB_2_DESCR", this.jobTwoDescr);
+		templateFile = templateFile.replaceAll("JOB_TITLE_3", this.jobTitleThree);
+		templateFile = templateFile.replaceAll("JOB_3_DATE", this.jobThreeDate);
+		templateFile = templateFile.replaceAll("JOB_3_INSTITUTION", this.jobThreeInstitution);
+		templateFile = templateFile.replaceAll("JOB_3_DESCR", this.jobThreeDescr);
+		templateFile = templateFile.replaceAll("CS_TITLE_FIELD", this.customTitle);
+		templateFile = templateFile.replaceAll("CUSTOM_FIELD_1", this.customFieldOne);
+		templateFile = templateFile.replaceAll("CUSTOM_FIELD_2", this.customFieldTwo);
+		templateFile = templateFile.replaceAll("CUSTOM_FIELD_3", this.customFieldThree);
+		
+		
+		// Create temporary .tex file
+		File file = new File("temp.tex");
+		
+		try (FileOutputStream fop = new FileOutputStream(file)) {
+			
+			// if file doesn't exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+ 
+			// get the content in bytes
+			byte[] contentInBytes = templateFile.getBytes();
+ 
+			fop.write(contentInBytes);
+			fop.flush();
+			fop.close();
+ 
+		} catch (IOException e) {
+			e.printStackTrace();
+			
+			return "failure";
+		}
+		
+		return "success";
 	}
 }

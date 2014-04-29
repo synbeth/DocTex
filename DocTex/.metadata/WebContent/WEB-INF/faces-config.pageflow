@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13939668559153" configfile="/DocTex/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf13969856369340" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13983689600791" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf13969856369340" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf13983689600791" path="/login.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="WEB-INF/templates/menubar.xhtml" id="pf13969856369343" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13969856369344" path="/WEB-INF/templates/menubar.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="WEB-INF/auth/settings.xhtml" id="pf13969856369345" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13969856369344" path="/WEB-INF/auth/settings.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" id="pf13983689600802" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13983689600791" path="/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" id="pf13983689600802" referenceLink="//@navigationRule.2/@navigationCase.1/@toViewId|" inlinks="pf13983689600791 pf13987445407234" path="/home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB-INF/auth/latex_templates/resumes/display_resume_0.xhtml" id="pf13987445407235" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf13987445407234" path="/WEB-INF/auth/latex_templates/resumes/display_resume_0.xhtml"/>
   <links id="pf13969856369344" target="pf13969856369345" source="pf13969856369343" outcome="settings"/>
   <links id="pf13983689600791" target="pf13983689600802" source="pf13969856369340" outcome="success" redirect="true" fromaction="#{loginBean.login}"/>
+  <links id="pf13987445407234" target="pf13983689600802" source="pf13987445407235" outcome="success" redirect="true" fromaction="#{resumeTemplateBean.generate}"/>
 </pageflow:Pageflow>
