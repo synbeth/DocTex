@@ -80,7 +80,7 @@ SKILLS_2_FIELD
 \section{EXPERIENCE}
 
 {\sl JOB_TITLE_1} \hfill JOB_1_DATE \\
-JOB_1_INSTITIUTION
+JOB_1_INSTITUTION
 \begin{itemize} \itemsep -2pt % Reduce space between items
 \item JOB_1_DESCR
 \end{itemize}

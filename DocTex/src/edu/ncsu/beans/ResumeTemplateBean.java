@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ResumeTemplateBean {
 	
-	private String template = "/WEB-INF/auth/latex_templates/resumes/cv_2.txt";
+	private String template = "/Users/Alex/latex_templates/resumes/cv_2.txt";
 	private String firstname;
 	private String lastname;
 	private String street;
@@ -310,10 +310,10 @@ public class ResumeTemplateBean {
 	
 	
 	public String generate() {
-		String templateFile;
 		
+		String templateFile;
 		try {
-			templateFile = new String(Files.readAllBytes(Paths.get(template)));
+			templateFile = new String(Files.readAllBytes(Paths.get(this.template)));
 		} catch (IOException e) {
 			
 			e.printStackTrace();
@@ -355,7 +355,7 @@ public class ResumeTemplateBean {
 		
 		
 		// Create temporary .tex file
-		File file = new File("temp.tex");
+		File file = new File("/Users/Alex/latex_templates/resumes/temp.tex");
 		
 		try (FileOutputStream fop = new FileOutputStream(file)) {
 			
@@ -374,6 +374,14 @@ public class ResumeTemplateBean {
 		} catch (IOException e) {
 			e.printStackTrace();
 			
+			return "failure";
+		}
+		
+		try {
+			Runtime.getRuntime().exec("pdflatex -output-directory=/Users/Alex/Desktop /Users/Alex/latex_templates/resumes/temp.tex");
+		} catch (IOException e) {
+
+			e.printStackTrace();
 			return "failure";
 		}
 		
