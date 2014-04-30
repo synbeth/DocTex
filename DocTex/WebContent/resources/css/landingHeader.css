@@ -1,0 +1,19 @@
+.landingHeader:not(#top_panel){
+  background: #161923;
+  max-width: 100%;
+  height: 200px;
+  z-index: 1;
+  opacity: 0.8;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.div_top{
+	position: relative;
+	z-index: 2;
+	clear: both;
+	margin-top:-175px;
+}

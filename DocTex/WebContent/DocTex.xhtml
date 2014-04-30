@@ -8,6 +8,11 @@
 <head>
 	<meta charset="UTF-8"/>
  
+ 	<link rel="stylesheet" href="resources/css/glossy.css" type="text/css" />
+ 	<!-- <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css" /> -->  
+ 	
+ 	<link rel="stylesheet" href="resources/css/landingHeader.css" type="text/css" />
+ 
  	<link rel="stylesheet" href="resources/css/immersive-slider.css" type="text/css" />
 	<script src="resources/scripts/jquery-2.1.0.js"></script>
 	<script src="resources/scripts/jquery.immersive-slider.js"></script>
@@ -172,13 +177,14 @@
     }
     .credit {
       text-align: center;
-      color: #444;
       padding: 10px;
       margin: 0 0 0 0;
       background: #161923;
-      color: #FFF;
-      float: left;
+      color: #C0C6D8;
+      /*float: left;*/
+      height: 22px;
       width: 100%;
+      overflow: hidden;
     }
     .credit a {
       color: #fff;
@@ -269,21 +275,33 @@
     margin-top: 5px;
   }
   
-  #top_panel table td {
+  #top_panel table:not(#register_btn) td {
     text-align: center;
   }
   
   #textarea_2::-webkit-input-placeholder{
   color:    #666666;
 	}
+	
+	#signup-header{
+		background: linear-gradient(#FFFFFF, #E8E8E8);
+		padding: 18px 18px 14px 18px;
+		box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
+		width: 476px;
+		z-index: 2;
+	}
   
       .bl_form {
-      margin: 150px 0;
+      margin: 69px 0px 69px 116px;
+      display: block;
     }
     
-    .bl_form input {
+    .bl_form input:not(#register_landing_user) {
+      display: block;
       padding-top: 15px;
-      background: rgba(255,255,255,0.10);
+      margin-bottom: 45px;
+      /*background: #C0D3EE;*/
+      background: linear-gradient(#F0F0F0 , #FFFFFF);
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       border: none;
       color: white;
@@ -291,11 +309,14 @@
       border-radius: 25px;
       font-size: 16px;
       outline: none;
+      width: 250px;
     }
 
 
     .lb_wrap .lb_label.top, .lb_wrap .lb_label.bottom {
       left: 15px !important;
+      top: -68px !important;
+      display: inline-table;
     }
 
     .lb_wrap .lb_label.left {
@@ -332,7 +353,7 @@
 	   <script>
 		  $(document).ready( function() {
 			    $("input.label_better").label_better({
-			      easing: "bounce"
+			      easing: "ease"
 			    });
 			  });
 	   
@@ -345,37 +366,32 @@
   	      });*/
         </script>
      
-     
 </head>
 <body>
 	<div class="wrapper">
     <!-- <header> -->
-      <form id="title_text">
-      <h:panelGrid columns="3" style="cellspacing=20px; margin: 0 auto;" id="top_panel" width="100%">
-      	<p:commandLink id="register_btn" ajax="true" onclick="$('.sidemenu').openMenu();">  
-        	<h:outputText value="Register now" id="tester"/>  
-    	</p:commandLink>
-      	<h1>DocTex <img src="resources/images/LaTeXlogo.png"  height="60px"/> Formatter</h1>
-      	<p:commandLink id="login_btn" onclick="alert('dad');">  
-        	<h:outputText value="Login here" />  
-    	</p:commandLink>
-      </h:panelGrid>
-      </form>
-      
-
-      
-      <h2>Effortlessly create professional <img src="resources/images/LaTeXlogo.png"  height="25px"/> documents with easy-to-use templates</h2>
-      <p class="credit">Created by <b>Bethany Vohlers</b> &amp; <b>Alex Wang</b></p>
-      
-      
-      
+    <div class="landingHeader" id="landingHeader"></div>
+    <div class="div_top">
+    	<!-- <h1 id="header" class="ontop">DocTex <img src="resources/images/LaTeXlogo.png"  height="60px" id="latexLogo"/> Formatter</h1>-->
+    	<h:panelGrid columns="3" style="cellspacing=20px; margin: 0 auto; z-index:2;" id="top_panel" width="100%">
+   			<p:commandLink style="color:white;" id="register_btn" ajax="true" onclick="$('.sidemenu').openMenu();">  
+       			<h:outputText style="font-size:18px;text-decoration:underline;" value="Register now"/>  
+   			</p:commandLink>
+      		<h1 id="header" style="color:#E8E8E8;">DocTex <img src="resources/images/LaTeXlogo.png"  height="60px" id="latexLogo"/> Formatter</h1>
+      		<p:commandLink style="color:white;" id="login_btn"  ajax="true"><!--onclick="$('.loginmenu').openMenu();"-->
+        		<h:outputText style="font-size:18px;text-decoration:underline;" value="Login here"/>  
+    		</p:commandLink>
+      	</h:panelGrid>
+      <h2 style="color:white;">Effortlessly create professional <img src="resources/images/LaTeXlogo.png"  height="25px"/> documents with easy-to-use templates</h2>
+      <p class="credit">Created by <b>Bethany Vohlers</b> &amp; <b>Alex Wang</b></p>  
+    </div>      
     <!-- </header> -->
     <div class="main">
       <div class="page_container">
         <div id="immersive_slider">
           <div class="slide" data-blurred="resources/images/blurred_edited.png">
             <div class="content">
-              <h2><a>The DocTex Model</a></h2>
+              <h2><a>The DocTex Way</a></h2>
               <p>It&#39;s never been easier to create professional documents at the touch of a button.
               Upload your favorite templates or choose from our vast collection to auto-format your documents. It&#39;s easy. No scripts, no editors, no nothing. Register today.</p>
             </div>
@@ -437,15 +453,28 @@
   <div class="page-container">
         <div class="sidemenu">
           <nav class="left">
-            <h:outputText value="Be a part of a growing community of formatters"/>
+          	<div id="left_div" style="padding-left:50px;">
+          		<h2>Join the DocTex Community today!</h2>
+            	<p><i>Be a part of a growing community of formatters</i></p>
+            	<br />
+            	<p>You'll be messaged once the official site launches. Until then, no spam, no unnecessary emails. Controlling the design of your documents is just an account away.</p>
+            </div>
           </nav>
-          <nav class="right">
-          		<div class="page-container">
+          <nav >
+          		<div class="page-container">          			 
+          			<div id="signup-header">
+          				<h2><b>Create a new account</b></h2>
+          				<p>It's simple. It's free. All at the touch of a button.</p>
+          			</div>
     	    		<form class="bl_form">
-        				<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username"/>
-          				<!-- <input type="email" value="pete@abcdefg.com"  class="label_better" data-new-placeholder="Email Address" placeholder="Email Address" id="email"/>
-          				<input type="password" value="abcdefg"  class="label_better" data-new-placeholder="Password" placeholder="Password" id="password"/>
-          				<input type="password" value="abcdefg" class="label_better" data-new-placeholder="Shhh.." placeholder="Confirm Password" id="confirm"/>-->
+    	    			<h:panelGrid columns="1">
+        					<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
+          					<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
+          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
+          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
+        				</h:panelGrid>
+        			<!-- <input type="submit" value="Register" class="glossy" id="register_landing_user" onclick="$('.sidemenu').closeMenu();"/> -->
+        			<p:commandButton value="Register" action="#{registrationBean.register}" styleClass="ui-priority-primary"></p:commandButton>
         			</form>
       			</div>
           
@@ -453,8 +482,47 @@
           </nav>
         </div>
       </div>
+      <!-- ########################################################################################### -->
+      
+      <!-- <div class="login-container">
+        <div class="loginmenu">
+          <nav class="login_left">
+          	<div id="login_left_div" style="padding-left:50px;">
+          		
+            </div>
+          </nav>
+          <nav >
+          	<div class="login-container">          			 
+          			<div id="signup-header">
+          				<h2><b>Login</b></h2>
+          				<p>Login with an existing account. FORGOT PASSWORD?</p>
+          			</div>
+    	    		<form class="bl_form">
+    	    			<h:panelGrid columns="1">
+        					<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
+          					<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
+          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
+          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
+        				</h:panelGrid>
+        			</form>
+      			</div>
+          </nav>
+        </div>
+      </div> -->
+      
+      
+      
+      
+      
       <script type="text/javascript">
       	$(".sidemenu").square_menu({
+    		flyDirection: "top", // The direction where the menu will fly from. Available options are "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left" and "bottom-right". The default value is "bottom".
+    		button: false, // You can define text inside the auto-generated button here. If you want to prevent the plugin from generating a menu button, change this to false. The default value is "Menu".
+    		animationStyle: "vertical", // The type of animation style you will see after it flew in. Available options are "vertical" which expands vertically and "horizontal" which expands horizontally. Vertical works best with "top" or "bottom" flyDirection whereas Horizontal works best with "left" or "right" flyDirection. The default value is "vertical".
+    		closeButton: "X" // You can define the content of the close button appears after animates are completed here. Change this to false to hide the close button. The default value is X.
+  		});
+      	
+      	$(".loginmenu").square_menu({
     		flyDirection: "top", // The direction where the menu will fly from. Available options are "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left" and "bottom-right". The default value is "bottom".
     		button: false, // You can define text inside the auto-generated button here. If you want to prevent the plugin from generating a menu button, change this to false. The default value is "Menu".
     		animationStyle: "vertical", // The type of animation style you will see after it flew in. Available options are "vertical" which expands vertically and "horizontal" which expands horizontally. Vertical works best with "top" or "bottom" flyDirection whereas Horizontal works best with "left" or "right" flyDirection. The default value is "vertical".

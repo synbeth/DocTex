@@ -106,7 +106,7 @@ body.sm-activate {
   height: 100%;
   position: absolute;
   top: 0;
-  background: #85B4CC;
+  background: linear-gradient(to right, #A7AFC8, #E6E8EF);;
 }
 
 
@@ -152,6 +152,7 @@ body.sm-activate {
   -o-transform: translate3d(-50%, 0, 0) scaleX(0.002);
   transform: translate3d(-50%, 0, 0) scaleX(0.002);
   right: 0;
+  background: #E6E8EF;
 }
 
 .sm-menu .sm-nav.animated, .sm-menu.sm-horizontal .sm-nav.animated  {
@@ -203,7 +204,7 @@ body.sm-activate {
 }
 
 .sm-menu .sm-close {
-  color: white;
+  color: #B0B0B0;
 }
 
 .sm-overlay {
@@ -241,7 +242,7 @@ body .sm-button:hover {
 }
 
 body.sm-activate .sm-overlay {
-  opacity: 1;
+  opacity: 0.9;
   visibility: visible;
 }
 
