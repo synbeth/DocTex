@@ -1,12 +1,21 @@
 package edu.ncsu.beans;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.ServletContext;
+
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 public class ResumeTemplateBean {
 	
@@ -43,6 +52,8 @@ public class ResumeTemplateBean {
 	private String customFieldOne;
 	private String customFieldTwo;
 	private String customFieldThree;
+	
+	private StreamedContent pdf;
 	
 	public String getTemplate() {
 		return template;
@@ -378,13 +389,37 @@ public class ResumeTemplateBean {
 		}
 		
 		try {
-			Runtime.getRuntime().exec("pdflatex -output-directory=/Users/Alex/Desktop /Users/Alex/latex_templates/resumes/temp.tex");
+			Process p = Runtime.getRuntime()
+					.exec("/usr/texbin/pdflatex -output-directory=/Users/Alex/Desktop temp.tex", null, new File("/Users/Alex/latex_templates/resumes/"));
+			BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()));  
+            String line;  
+            while ((line = is.readLine()) != null) {  
+                System.out.println(line);  
+            }  
 		} catch (IOException e) {
 
 			e.printStackTrace();
 			return "failure";
 		}
 		
+		InputStream stream;
+		try {
+			stream = new FileInputStream("/Users/Alex/Desktop/temp.pdf");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			
+			return "failure";
+		}
+		
+        pdf = new DefaultStreamedContent(stream, "application/pdf", "resume.pdf");
+		
 		return "success";
+	}
+	
+	public StreamedContent getPdf() {
+		String generation = generate();
+		System.out.println("Generate: " + generation);
+        
+        return pdf;
 	}
 }

@@ -197,7 +197,9 @@
         </h:panelGrid>
     </p:panel>
     
-    <p:commandButton value="Generate Resume" action="#{resumeTemplateBean.generate}" styleClass="ui-priority-primary"></p:commandButton>
+    <p:commandButton id="downloadPdf" value="Generate and Download" ajax="false" icon="ui-icon-arrowthichk-s">
+		<p:fileDownload value="#{resumeTemplateBean.pdf}" />
+	</p:commandButton>
 </h:form>
 
 </html>

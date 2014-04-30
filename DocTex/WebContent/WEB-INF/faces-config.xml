@@ -46,14 +46,5 @@
 			<to-view-id>/WEB-INF/auth/settings.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	<navigation-rule>
-        <from-view-id>/WEB-INF/auth/latex_templates/resumes/display_resume_0.xhtml</from-view-id>
-        <navigation-case>
-        	<from-action>#{resumeTemplateBean.generate}</from-action>
-            <from-outcome>success</from-outcome>
-            <to-view-id>/home.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
 
 </faces-config>
