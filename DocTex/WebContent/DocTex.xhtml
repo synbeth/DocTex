@@ -368,7 +368,7 @@
 	:-ms-input-placeholder {  
    		color: rgb(95,95,95);  
 	}
-    
+	  
 	</style>
 
 	   <script>
@@ -399,7 +399,7 @@
        			<h:outputText style="font-size:18px;text-decoration:underline;" value="Register now"/>  
    			</p:commandLink>
       		<h1 id="header" style="color:#C0C6D8;">DocTex <img src="resources/images/LaTeX_logoWhite.svg"  height="60px" id="latexLogo"/> Formatter</h1>
-      		<p:commandLink style="color:white;" id="login_btn"  ajax="true" onclick="$('.loginmenu').openMenu();">
+      		<p:commandLink style="color:white;" id="login_btn"  ajax="true" onclick="landingLoginFunction();">
         		<h:outputText style="font-size:18px;text-decoration:underline;" value="Login here"/>  
     		</p:commandLink>
       	</h:panelGrid>
@@ -410,36 +410,34 @@
     <div class="main">
       <div class="page_container">
         <div id="immersive_slider">
-          <div class="slide" data-blurred="resources/images/blurred_edited.png">
+          <!-- <div class="slide" data-blurred="resources/images/blurred_edited.png"> -->
+          <div class="slide" data-blurred="resources/images/blurry_keyboard_cropped.jpg">
             <div class="content">
-              <h2><a>The DocTex Way</a></h2>
+              <h2 style="padding-left:10px;"><a>The DocTex Way</a></h2>
               <p>It&#39;s never been easier to create professional documents at the touch of a button.
-              Upload your favorite templates or choose from our vast collection to auto-format your documents. It&#39;s easy. No scripts, no editors, no nothing. Register today.</p>
+              Upload your favorite templates or choose from our vast collection to auto-format your documents. It&#39;s easy. No scripts, no editors, no nothing. </p>
+              <p style="padding-left:90px"><b>Register today.</b></p>
             </div>
              <div class="image">
-              <!-- <a href="http://www.bucketlistly.com" target="_blank"> -->
-                <img src="resources/images/woman_keyboard.jpg" alt="Slider 1"/>
-              <!-- </a> -->
+              <img src="resources/images/woman_keyboard.jpg" alt="Slider 1"/>
             </div>
           </div>
-          <div class="slide" data-blurred="resources/images/slide2_blurred.jpg">
+          <div class="slide" data-blurred="resources/images/blurred_tech_cropped.jpg">
             <div class="content">
-              <h2><a href="http://www.bucketlistly.com/apps" target="_blank">BucketListly Apps</a></h2>
-              <p>It&#39;s never been easier to watch YouTube on the big screen
-              Send your favorite YouTube videos from your Android phone or tablet to TV with the touch of a button. It&#39;s easy. No wires, no setup, no nothing. Find out more here.</p>
+              <h2 style="padding-left:30px;">Format Simply</h2>
+              <p>DocTex removes the headaches that come with document formatting. No technical skills, no <img src="resources/images/LaTeX_logoWhite.svg" height="18px" style="vertical-align:middle;"/> code, no frustrating MicroSoft Word<img src="resources/images/white_registered_trademark_symbol.gif"  height="14px" style="vertical-align:top;"/> manipulation. DocTex is your one-stop shop for beautiful, professional documents. Stayed updated for our official release coming soon.</p>
             </div>
             <div class="image">
-             <a href="http://www.bucketlistly.com/apps" target="_blank"> <img src="resources/images/slide2.jpg" alt="Slider 1"/></a>
+             <img src="resources/images/paper_stack_cropped.jpg" alt="Slider 1"/>
             </div>
           </div>
-          <div class="slide" data-blurred="resources/images/slide3_blurred.jpg">
+          <div class="slide" data-blurred="resources/images/blurred_edited.png"> <!-- style="margin-top:-200px;height:initial;">-->
             <div class="content">
-              <h2><a href="http://www.thepetedesign.com" target="_blank">The Pete Design</a></h2>
-              <p>It&#39;s never been easier to watch YouTube on the big screen
-              Send your favorite YouTube videos from your Android phone or tablet to TV with the touch of a button. It&#39;s easy. No wires, no setup, no nothing. Find out more here.</p>
+              <h2 style="padding-left:27px;">Register Today</h2>
+              <p>Register today and stay updated on DocTex&#39;s offical release. Your account will remain in the system and ready for use once DocTex completes construction. It&#39;s free. It&#39;s easy.</p>
             </div>
             <div class="image">
-              <a href="http://www.thepetedesign.com" target="_blank"><img src="resources/images/slide3.jpg" alt="Slider 1"/></a>
+              <img src="resources/images/login_form.jpg" alt="Slider 1"/>
             </div>
           </div>
           
@@ -543,11 +541,11 @@
           </nav>
         </div>
       </div> 
-      
-      
-      
-      
-      
+      <!-- <a id="landingLoginModal" rel="leanModal" href="landingLogin_modal"/>
+      <div id="landingLogin_modal">
+      	<h2>We&#39;re sorry, but at this time DocTex is still under construction. We&#39;ll email you as soon as the site is ready!</h2>
+      </div>-->
+
       <script type="text/javascript">      
         //$("#leanModal").leanModal();
         $(function() {
@@ -558,6 +556,10 @@
         	$('.sidemenu').closeMenu();
         	$('#registerModal').click();
         	
+        }
+        
+        function landingLoginFunction(){
+        	//$('#landingLoginModal').click();        	
         }
         
         $(".sidemenu").square_menu({
