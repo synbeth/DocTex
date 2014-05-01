@@ -18,7 +18,11 @@
 	<script src="resources/scripts/jquery.immersive-slider.js"></script>
 	
 	<link rel="stylesheet" href="resources/css/square_menu.css" type="text/css" />
+	<link rel="stylesheet" href="resources/css/square_menu_login.css" type="text/css" />
+	<script src="resources/scripts/jquery.square_menu_login.js"></script>
 	<script src="resources/scripts/jquery.square_menu.js"></script>
+
+	<script type="text/javascript" src="resources/scripts/jquery.leanModal.min.js"></script>
 	
 	<script src="resources/scripts/jquery.label_better.js"></script>
  
@@ -275,7 +279,7 @@
     margin-top: 5px;
   }
   
-  #top_panel table:not(#register_btn) td {
+  #top_panel table td {
     text-align: center;
   }
   
@@ -288,15 +292,15 @@
 		padding: 18px 18px 14px 18px;
 		box-shadow: 0px 2px 8px rgba(0,0,0,0.2);
 		width: 476px;
-		z-index: 2;
+		/*z-index: 2;*/
 	}
   
       .bl_form {
-      margin: 69px 0px 69px 116px;
+      margin: 40px 0px 0px 116px;
       display: block;
     }
     
-    .bl_form input:not(#register_landing_user) {
+    .bl_form input {
       display: block;
       padding-top: 15px;
       margin-bottom: 45px;
@@ -304,14 +308,30 @@
       background: linear-gradient(#F0F0F0 , #FFFFFF);
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       border: none;
-      color: white;
+      color: #666;
       padding: 10px 15px;
       border-radius: 25px;
       font-size: 16px;
       outline: none;
       width: 250px;
     }
-
+    
+    .submit_register {
+      display: inline;
+      padding-top: 15px;
+      margin-bottom: 45px;
+      /*background: #C0D3EE;*/
+      background: linear-gradient(#F0F0F0 , #FFFFFF);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      border: none;
+      color: #666;
+      padding: 10px 15px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      outline: none;
+      width: 150px !important;
+    }
 
     .lb_wrap .lb_label.top, .lb_wrap .lb_label.bottom {
       left: 15px !important;
@@ -325,11 +345,12 @@
 
     .lb_label {
       font-weight: bold;
-      color: #666;
+      color: #9B9DA2;
     }
 
     .lb_label.active {
-      color: #FFF;
+      color: #241622;
+      /*text-shadow: 0px 0px 1px #666;*/
     }
     
     ::-webkit-input-placeholder {
@@ -377,12 +398,12 @@
    			<p:commandLink style="color:white;" id="register_btn" ajax="true" onclick="$('.sidemenu').openMenu();">  
        			<h:outputText style="font-size:18px;text-decoration:underline;" value="Register now"/>  
    			</p:commandLink>
-      		<h1 id="header" style="color:#E8E8E8;">DocTex <img src="resources/images/LaTeXlogo.png"  height="60px" id="latexLogo"/> Formatter</h1>
-      		<p:commandLink style="color:white;" id="login_btn"  ajax="true"><!--onclick="$('.loginmenu').openMenu();"-->
+      		<h1 id="header" style="color:#C0C6D8;">DocTex <img src="resources/images/LaTeX_logoWhite.svg"  height="60px" id="latexLogo"/> Formatter</h1>
+      		<p:commandLink style="color:white;" id="login_btn"  ajax="true" onclick="$('.loginmenu').openMenu();">
         		<h:outputText style="font-size:18px;text-decoration:underline;" value="Login here"/>  
     		</p:commandLink>
       	</h:panelGrid>
-      <h2 style="color:white;">Effortlessly create professional <img src="resources/images/LaTeXlogo.png"  height="25px"/> documents with easy-to-use templates</h2>
+      <h2 style="color:white;">Effortlessly create professional <img src="resources/images/LaTeX_logoWhite.svg"  height="25px"/> documents with easy-to-use templates</h2>
       <p class="credit">Created by <b>Bethany Vohlers</b> &amp; <b>Alex Wang</b></p>  
     </div>      
     <!-- </header> -->
@@ -453,81 +474,105 @@
   <div class="page-container">
         <div class="sidemenu">
           <nav class="left">
-          	<div id="left_div" style="padding-left:50px;">
-          		<h2>Join the DocTex Community today!</h2>
-            	<p><i>Be a part of a growing community of formatters</i></p>
+          	<div id="left_div" style="padding-left:50px; padding-right:50px; padding-top:32px;">
+          		<br /><br /><br /><br /><br />
+          		<h2 style="text-align:center;">Join the DocTex Community today!</h2>
+          		<br /><br />
+            	<p style="font-weight:100;text-align:center;">And be a part of a growing community of formatters.</p>
+            	<br /><br />
+            	<p style="font-weight:100;text-align:center;">You'll be notified once the official site launches. Signing up is easy. No spam, no unnecessary emails. You'll receive a confirmation upon registering.</p>
             	<br />
-            	<p>You'll be messaged once the official site launches. Until then, no spam, no unnecessary emails. Controlling the design of your documents is just an account away.</p>
+            </div>
+            <div style="padding-right:50px;">
+            	<p style="text-align:center;"><i>Help spread the word!</i></p>
             </div>
           </nav>
-          <nav >
-          		<div class="page-container">          			 
-          			<div id="signup-header">
-          				<h2><b>Create a new account</b></h2>
-          				<p>It's simple. It's free. All at the touch of a button.</p>
-          			</div>
-    	    		<form class="bl_form">
-    	    			<h:panelGrid columns="1">
-        					<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
-          					<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
-          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
-          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
-        				</h:panelGrid>
-        			<!-- <input type="submit" value="Register" class="glossy" id="register_landing_user" onclick="$('.sidemenu').closeMenu();"/> -->
-        			<p:commandButton value="Register" action="#{registrationBean.register}" styleClass="ui-priority-primary"></p:commandButton>
-        			</form>
-      			</div>
-          
-    			<!-- <ui:include src="/WEB-INF/auth/registerUserLandingPage.xhtml"/> -->
+          <nav class="right">
+          	<div class="page-container">          			 
+          		<div id="signup-header">
+          			<h2><b>Create a new account</b></h2>
+          			<p>It's simple. It's free. All at the touch of a button.</p>
+          		</div>
+    	   		<form class="bl_form">
+    	   			<h:panelGrid columns="1">
+        				<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
+          				<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
+          				<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
+          				<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
+        			</h:panelGrid>
+        		</form>
+        		<form class="bl_form" style="margin-left:91px;margin-top:0px;">
+        			<h:panelGrid columns="3">
+        				<h:commandButton class="submit_register" type="submit" id="register_landing_user" action="#{registrationBean.register}" onclick="registerFunction();" value="Register"/>
+        				<h:outputText value="&#160;&#160;&#160;&#160;"></h:outputText>
+        				<h:commandButton class="submit_register" type="button" id="cancel_register_landing_user" onclick="$('.sidemenu').closeMenu();" value="Cancel"/>
+        			</h:panelGrid>
+        			<!-- <p:commandButton value="Register" action="#{registrationBean.register}" styleClass="ui-priority-primary"></p:commandButton> -->
+        		</form>
+      		</div>
           </nav>
         </div>
       </div>
-      <!-- ########################################################################################### -->
-      
-      <!-- <div class="login-container">
+      <a id="registerModal" rel="leanModal" href="#register_modal"/>
+      <div id="register_modal">
+      	<h2>Registration successful!</h2>
+      </div>
+      <!-- ########################################################################################### -->      
+      <div class="page-container">
         <div class="loginmenu">
           <nav class="login_left">
           	<div id="login_left_div" style="padding-left:50px;">
           		
             </div>
           </nav>
-          <nav >
-          	<div class="login-container">          			 
-          			<div id="signup-header">
-          				<h2><b>Login</b></h2>
-          				<p>Login with an existing account. FORGOT PASSWORD?</p>
-          			</div>
-    	    		<form class="bl_form">
-    	    			<h:panelGrid columns="1">
-        					<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
-          					<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
-          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
-          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
-        				</h:panelGrid>
-        			</form>
-      			</div>
+          <nav class="login_right">
+          	<div class="page-container">          			 
+          		<!-- <div id="signup-header">
+          			<h2><b>Login</b></h2>
+          			<p>Login with an existing account. FORGOT PASSWORD?</p>
+          		</div>
+    	    	<form class="bl_form">
+    	    		<h:panelGrid columns="1">
+        				<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
+          				<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
+          				<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
+          				<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
+        			</h:panelGrid>
+        		</form>-->
+      		</div>
           </nav>
         </div>
-      </div> -->
+      </div> 
       
       
       
       
       
-      <script type="text/javascript">
-      	$(".sidemenu").square_menu({
+      <script type="text/javascript">      
+        //$("#leanModal").leanModal();
+        $(function() {
+			$('a[rel*=leanModal]').leanModal({ top: 200, overlay: 0.4, closeButton: ".modal_close" });		
+		});
+        
+        function registerFunction(){
+        	$('.sidemenu').closeMenu();
+        	$('#registerModal').click();
+        	
+        }
+        
+        $(".sidemenu").square_menu({
     		flyDirection: "top", // The direction where the menu will fly from. Available options are "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left" and "bottom-right". The default value is "bottom".
     		button: false, // You can define text inside the auto-generated button here. If you want to prevent the plugin from generating a menu button, change this to false. The default value is "Menu".
     		animationStyle: "vertical", // The type of animation style you will see after it flew in. Available options are "vertical" which expands vertically and "horizontal" which expands horizontally. Vertical works best with "top" or "bottom" flyDirection whereas Horizontal works best with "left" or "right" flyDirection. The default value is "vertical".
     		closeButton: "X" // You can define the content of the close button appears after animates are completed here. Change this to false to hide the close button. The default value is X.
   		});
       	
-      	$(".loginmenu").square_menu({
+      	/*$(".loginmenu").square_menu_login({
     		flyDirection: "top", // The direction where the menu will fly from. Available options are "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left" and "bottom-right". The default value is "bottom".
     		button: false, // You can define text inside the auto-generated button here. If you want to prevent the plugin from generating a menu button, change this to false. The default value is "Menu".
     		animationStyle: "vertical", // The type of animation style you will see after it flew in. Available options are "vertical" which expands vertically and "horizontal" which expands horizontally. Vertical works best with "top" or "bottom" flyDirection whereas Horizontal works best with "left" or "right" flyDirection. The default value is "vertical".
     		closeButton: "X" // You can define the content of the close button appears after animates are completed here. Change this to false to hide the close button. The default value is X.
-  		});
+  		});*/
      </script>
 
   
