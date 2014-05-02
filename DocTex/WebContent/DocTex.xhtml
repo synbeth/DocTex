@@ -5,7 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui" 
 	xmlns:pe="http://primefaces.org/ui/extensions">
-<head>
+<h:head>
 	<meta charset="UTF-8"/>
  
  	<link rel="stylesheet" href="resources/css/glossy.css" type="text/css" />
@@ -387,8 +387,8 @@
   	      });*/
         </script>
      
-</head>
-<body>
+</h:head>
+<h:body>
 	<div class="wrapper">
     <!-- <header> -->
     <div class="landingHeader" id="landingHeader"></div>
@@ -398,12 +398,12 @@
    			<p:commandLink style="color:white;" id="register_btn" ajax="true" onclick="$('.sidemenu').openMenu();">  
        			<h:outputText style="font-size:18px;text-decoration:underline;" value="Register now"/>  
    			</p:commandLink>
-      		<h1 id="header" style="color:#C0C6D8;">DocTex <img src="resources/images/LaTeX_logoWhite.svg"  height="60px" id="latexLogo"/> Formatter</h1>
+      		<h1 id="header" style="color:#C0C6D8;">DocTex <img src="resources/images/LaTeX_logoWhite.png"  height="60px" id="latexLogo"/> Formatter</h1>
       		<p:commandLink style="color:white;" id="login_btn"  ajax="true" onclick="landingLoginFunction();">
         		<h:outputText style="font-size:18px;text-decoration:underline;" value="Login here"/>  
     		</p:commandLink>
       	</h:panelGrid>
-      <h2 style="color:white;">Effortlessly create professional <img src="resources/images/LaTeX_logoWhite.svg"  height="25px"/> documents with easy-to-use templates</h2>
+      <h2 style="color:white;">Effortlessly create professional <img src="resources/images/LaTeX_logoWhite.png"  height="25px"/> documents with easy-to-use templates</h2>
       <p class="credit">Created by <b>Bethany Vohlers</b> &amp; <b>Alex Wang</b></p>  
     </div>      
     <!-- </header> -->
@@ -425,7 +425,7 @@
           <div class="slide" data-blurred="resources/images/blurred_tech_cropped.jpg">
             <div class="content">
               <h2 style="padding-left:30px;">Format Simply</h2>
-              <p>DocTex removes the headaches that come with document formatting. No technical skills, no <img src="resources/images/LaTeX_logoWhite.svg" height="18px" style="vertical-align:middle;"/> code, no frustrating MicroSoft Word<img src="resources/images/white_registered_trademark_symbol.gif"  height="14px" style="vertical-align:top;"/> manipulation. DocTex is your one-stop shop for beautiful, professional documents. Stayed updated for our official release coming soon.</p>
+              <p>DocTex removes the headaches that come with document formatting. No technical skills, no <img src="resources/images/LaTeX_logoWhite.png" height="18px" style="vertical-align:middle;"/> code, no frustrating MicroSoft Word<img src="resources/images/white_registered_trademark_symbol.gif"  height="14px" style="vertical-align:top;"/> manipulation. DocTex is your one-stop shop for beautiful, professional documents. Stay updated for our official release coming soon.</p>
             </div>
             <div class="image">
              <img src="resources/images/paper_stack_cropped.jpg" alt="Slider 1"/>
@@ -483,6 +483,9 @@
             </div>
             <div style="padding-right:50px;">
             	<p style="text-align:center;"><i>Help spread the word!</i></p>
+            	<br /><br />
+            	<!-- <p style="padding-left:50px;">Notice: style="font-size:10px;">Passwords are currently not required for registration. You will be asked to provide a password upon logging into DocTex for the first time once the site is completed.</p>
+            	-->
             </div>
           </nav>
           <nav class="right">
@@ -495,8 +498,8 @@
     	   			<h:panelGrid columns="1">
         				<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
           				<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
-          				<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
-          				<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
+          				<input type="password" disabled="disabled" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}" style="background:#C0C0C0;"/>
+          				<input type="password" disabled="disabled" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}" style="background:#C0C0C0;"/>
         			</h:panelGrid>
         		</form>
         		<form class="bl_form" style="margin-left:91px;margin-top:0px;">
@@ -580,5 +583,5 @@
   
   
 	
-</body>
+</h:body>
 </html>
