@@ -472,7 +472,7 @@
           		<br /><br />
             	<p style="font-weight:100;text-align:center;">And be a part of a growing community of formatters.</p>
             	<br />
-            	<p style="font-weight:100;text-align:center;">You'll be notified once the official site launches. Signing up is easy. No spam, no unnecessary emails. You'll receive a confirmation upon registering.</p>
+            	<p style="font-weight:100;text-align:center;">You'll be notified once the official site launches. Signing up is easy. You'll receive a single confirmation email upon registering. No spam, no hassle.</p>
             	<br />
             </div>
             <div style="padding-right:50px;">
@@ -493,10 +493,10 @@
           		<h:form>
     	   			<div class="bl_form">
     	   				<h:panelGrid columns="1">
-        					<input type="text" class="label_better" required="required" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" name="username" value="#{registrationBean.username}"/>
-          					<input type="email" class="label_better" required="required" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" name="email" value="#{registrationBean.email}" />
-          					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" style="background:#C0C0C0;"/>
-          					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" style="background:#C0C0C0;"/>
+        					<input type="text" class="label_better" required="required" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" name="username" value="#{registrationBean.username}" autocomplete="off"/>
+          					<input type="email" class="label_better" required="required" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" name="email" value="#{registrationBean.email}" autocomplete="off"/>
+          					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" style="background:#C0C0C0;" autocomplete="off"/>
+          					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" style="background:#C0C0C0;" autocomplete="off"/>
         				</h:panelGrid>
         			</div>
         			<div class="bl_form" style="margin-left:91px;margin-top:0px;">
