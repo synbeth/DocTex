@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.mail.*;
 import javax.mail.internet.*;
+import javax.servlet.http.HttpServletRequest;
 
 import org.hibernate.Session;
 
@@ -88,9 +89,16 @@ public class RegistrationBean {
 	public String register() {
 		
 		FacesContext fc = FacesContext.getCurrentInstance();
+		
+		HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		this.username = req.getParameter("username");
+		this.email = req.getParameter("email");
 		this.password = "#";
     	this.reTypePassword = "#";
-    	
+    	System.out.println(this.password);
+    	System.out.println(this.reTypePassword);
+    	System.out.println(this.email);
+    	System.out.println(this.username);
     	if (this.username == null || this.username.equals("")) {
     		fc.addMessage("registerUser", new FacesMessage("Invalid username"));
     		
@@ -102,7 +110,7 @@ public class RegistrationBean {
     	
     	try {
     		session.beginTransaction();
-    		user = (User) session.get(User.class, username);
+    		user = (User) session.get(User.class, this.username);
         	session.getTransaction().commit();
     	} catch (RuntimeException e) {
     		session.getTransaction().rollback();
@@ -115,7 +123,7 @@ public class RegistrationBean {
 
     		return "failure";
     	} else if (this.password == null || this.reTypePassword == null 
-    				|| !this.password.equals(this.reTypePassword) || !this.password.equals("")) {
+    				|| !this.password.equals(this.reTypePassword) || this.password.equals("")) {
     		fc.addMessage("registerUser", new FacesMessage("Password does not match"));
 
     		return "failure";

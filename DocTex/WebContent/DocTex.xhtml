@@ -493,8 +493,8 @@
           		<h:form>
     	   			<div class="bl_form">
     	   				<h:panelGrid columns="1">
-        					<input type="text" class="label_better" required="required" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
-          					<input type="email" class="label_better" required="required" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
+        					<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" name="username" value="#{registrationBean.username}"/>
+          					<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" name="email" value="#{registrationBean.email}" />
           					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" style="background:#C0C0C0;"/>
           					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" style="background:#C0C0C0;"/>
         				</h:panelGrid>
