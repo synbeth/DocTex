@@ -191,7 +191,7 @@ public class RegistrationBean {
         
         msg.setSubject("DocTex Registration Confirmation");
         msg.setText("<p>Thank you for signing up for DocTex, " + this.username 
-        		+ "! <br />DocTex is currently under construction, but we will "
+        		+ "! <br /><br />DocTex is currently under construction, but we will "
         		+ "notify you as soon as it is released. With your DocTex account "
         		+ "you'll have access to hundreds of existing templates with the ability "
         		+ "to upload your very own. We strive to provide you with professionally designed, "
