@@ -521,37 +521,11 @@
       <div id="register_modal">
       	<h2>Registration successful!</h2>
       </div>
+      <a id="landingLoginModal" rel="leanModal" href="login_modal"/>
+      <div id="login_modal">
+      	<h2>TESTING</h2>
+      </div>
       <!-- ########################################################################################### -->      
-      <div class="page-container">
-        <div class="loginmenu">
-          <nav class="login_left">
-          	<div id="login_left_div" style="padding-left:50px;">
-          		
-            </div>
-          </nav>
-          <nav class="login_right">
-          	<div class="page-container">          			 
-          		<!-- <div id="signup-header">
-          			<h2><b>Login</b></h2>
-          			<p>Login with an existing account. FORGOT PASSWORD?</p>
-          		</div>
-    	    	<form class="bl_form">
-    	    		<h:panelGrid columns="1">
-        				<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
-          				<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
-          				<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
-          				<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
-        			</h:panelGrid>
-        		</form>-->
-      		</div>
-          </nav>
-        </div>
-      </div> 
-      <!-- <a id="landingLoginModal" rel="leanModal" href="landingLogin_modal"/>
-      <div id="landingLogin_modal">
-      	<h2>We&#39;re sorry, but at this time DocTex is still under construction. We&#39;ll email you as soon as the site is ready!</h2>
-      </div>-->
-
       <script type="text/javascript">      
         //$("#leanModal").leanModal();
         $(function() {
@@ -560,12 +534,11 @@
         
         function registerFunction(){
         	$('.sidemenu').closeMenu();
-        	$('#registerModal').click();
-        	
+        	$('#registerModal').click();        	
         }
         
         function landingLoginFunction(){
-        	//$('#landingLoginModal').click();        	
+        	$('#landingLoginModal').click();        	
         }
         
         $(".sidemenu").square_menu({
