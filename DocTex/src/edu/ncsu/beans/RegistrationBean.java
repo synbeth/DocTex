@@ -86,6 +86,13 @@ public class RegistrationBean {
 		this.email = email;
 	}
 	
+	public void resetCredentials() {
+		this.username = null;
+		this.email = null;
+		this.password = null;
+		this.reTypePassword = null;
+	}
+	
 	public String register() {
 		
 		FacesContext fc = FacesContext.getCurrentInstance();
@@ -101,6 +108,7 @@ public class RegistrationBean {
     	System.out.println(this.username);
     	if (this.username == null || this.username.equals("")) {
     		fc.addMessage("registerUser", new FacesMessage("Invalid username"));
+    		resetCredentials();
     		
     		return "failure";
     	}
@@ -114,24 +122,28 @@ public class RegistrationBean {
         	session.getTransaction().commit();
     	} catch (RuntimeException e) {
     		session.getTransaction().rollback();
+    		resetCredentials();
     		
     		return "failure";
     	}
     	
     	if (user != null) {
     		fc.addMessage("registerUser", new FacesMessage("Username already taken"));
-
+    		resetCredentials();
+    		
     		return "failure";
     	} else if (this.password == null || this.reTypePassword == null 
     				|| !this.password.equals(this.reTypePassword) || this.password.equals("")) {
     		fc.addMessage("registerUser", new FacesMessage("Password does not match"));
-
+    		resetCredentials();
+    		
     		return "failure";
     	}
     	
     	if (this.email == null || !this.email.matches(EMAIL_PATTERN)) {
     		fc.addMessage("registerUser", new FacesMessage("Invalid email address"));
-
+    		resetCredentials();
+    		
     		return "failure";
     	}
     	
@@ -140,6 +152,7 @@ public class RegistrationBean {
     	} catch (Exception e) {
     		e.printStackTrace();
     		System.out.println("Email could not be sent");
+    		resetCredentials();
     		
     		return "failure";
     	}
@@ -150,10 +163,20 @@ public class RegistrationBean {
     	newUser.setPassword(this.password);
     	
     	session = HibernateUtil.getSessionFactory().getCurrentSession();
-    	session.beginTransaction();
-    	session.save(newUser);
-    	session.getTransaction().commit();
     	
+    	try {
+    		session.beginTransaction();
+    		session.save(newUser);
+    		session.getTransaction().commit();
+		} catch (RuntimeException e) {
+			session.getTransaction().rollback();
+			resetCredentials();
+		
+			return "failure";
+		}
+    	
+		resetCredentials();
+		
     	return "success";
 	}
 	
