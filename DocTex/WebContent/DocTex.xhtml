@@ -8,9 +8,7 @@
 <h:head>
 	<meta charset="UTF-8"/>
  
- 	<link rel="stylesheet" href="resources/css/glossy.css" type="text/css" />
- 	<!-- <link rel="stylesheet" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css" /> -->  
- 	
+ 	<link rel="stylesheet" href="resources/css/glossy.css" type="text/css" /> 	
  	<link rel="stylesheet" href="resources/css/landingHeader.css" type="text/css" />
  
  	<link rel="stylesheet" href="resources/css/immersive-slider.css" type="text/css" />
@@ -374,17 +372,13 @@
 	   <script>
 		  $(document).ready( function() {
 			    $("input.label_better").label_better({
-			      easing: "ease"
+			      //position: "left", // This will let you define the position where the label will appear when the user clicked on the input fields. Acceptable options are "top", "bottom", "left" and "right". Default value is "top".
+	  	    	  //animationTime: 500, // This will let you control the animation speed when the label appear. This option accepts value in milliseconds. The default value is 500.
+			      easing: "ease" // This option will let you define the CSS easing you would like to see animating the label. The option accepts all default CSS easing such as "linear", "ease" etc. Another extra option is you can use is "bounce". The default value is "ease-in-out".
+			      //offset: 20, // You can add more spacing between the input and the label. This option accepts value in pixels (without the unit). The default value is 20.
+		  	      //hidePlaceholderOnFocus: true // The default placeholder text will hide on focus
 			    });
 			  });
-	   
-  	  	 /*$("input.label_better").label_better({
-  	    		position: "left", // This will let you define the position where the label will appear when the user clicked on the input fields. Acceptable options are "top", "bottom", "left" and "right". Default value is "top".
-  	    		animationTime: 500, // This will let you control the animation speed when the label appear. This option accepts value in milliseconds. The default value is 500.
-  	    		easing: "ease", // This option will let you define the CSS easing you would like to see animating the label. The option accepts all default CSS easing such as "linear", "ease" etc. Another extra option is you can use is "bounce". The default value is "ease-in-out".
-  	    		offset: 20, // You can add more spacing between the input and the label. This option accepts value in pixels (without the unit). The default value is 20.
-  	    		hidePlaceholderOnFocus: true // The default placeholder text will hide on focus
-  	      });*/
         </script>
      
 </h:head>
@@ -399,7 +393,7 @@
        			<h:outputText style="font-size:18px;text-decoration:underline;" value="Register now"/>  
    			</p:commandLink>
       		<h1 id="header" style="color:#C0C6D8;">DocTex <img src="resources/images/LaTeX_logoWhite.png"  height="60px" id="latexLogo"/> Formatter</h1>
-      		<p:commandLink style="color:white;" id="login_btn"  ajax="true" onclick="landingLoginFunction();">
+      		<p:commandLink style="color:white;" id="login_btn" ajax="true" onclick="loginFunction();">
         		<h:outputText style="font-size:18px;text-decoration:underline;" value="Login here"/>  
     		</p:commandLink>
       	</h:panelGrid>
@@ -473,7 +467,7 @@
         <div class="sidemenu">
           <nav class="left">
           	<div id="left_div" style="padding-left:50px; padding-right:50px; padding-top:32px;">
-          		<br /><br /><br /><br /><br />
+          		<br /><br /><br />
           		<h2 style="text-align:center;">Join the DocTex Community today!</h2>
           		<br /><br />
             	<p style="font-weight:100;text-align:center;">And be a part of a growing community of formatters.</p>
@@ -483,9 +477,10 @@
             </div>
             <div style="padding-right:50px;">
             	<p style="text-align:center;"><i>Help spread the word!</i></p>
-            	<br /><br />
+            	<br /><br /><br />
             	<div>
-            		<p style="margin-left:50px;font-size:12px;border:1px solid;padding: 5px 5px 5px 5px;">Notice: <span style="font-size:12px;">Passwords are currently not required. You will be asked to provide a password upon logging into DocTex for the first time once the site is offically launched.</span></p>
+            		<p style="margin-left:50px;font-size:12px;">Notice: <span style="font-size:12px;">Passwords are currently not required. You will be asked to provide a password upon logging into DocTex for the first time once the site is offically launched.</span></p>
+            		<!-- border:1px solid;padding: 5px 5px 5px 5px; -->
             	</div>
             </div>
           </nav>
@@ -498,8 +493,8 @@
           		<h:form>
     	   			<div class="bl_form">
     	   				<h:panelGrid columns="1">
-        					<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
-          					<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
+        					<input type="text" class="label_better" required="required" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
+          					<input type="email" class="label_better" required="required" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
           					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" style="background:#C0C0C0;"/>
           					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" style="background:#C0C0C0;"/>
         				</h:panelGrid>
@@ -521,9 +516,9 @@
       <div id="register_modal">
       	<h2>Registration successful!</h2>
       </div>
-      <a id="landingLoginModal" rel="leanModal" href="login_modal"/>
+      <a id="loginModal" rel="leanModal" href="#login_modal"/>
       <div id="login_modal">
-      	<h2>TESTING</h2>
+      	<h2>We&#39;re sorry, but at this time DocTex is still<br/><span style="font-variant:small-caps;"><b>under construction</b>.</span><br />We&#39;ll email you as soon as the site launches!</h2>
       </div>
       <!-- ########################################################################################### -->      
       <script type="text/javascript">      
@@ -537,8 +532,9 @@
         	$('#registerModal').click();        	
         }
         
-        function landingLoginFunction(){
-        	$('#landingLoginModal').click();        	
+        function loginFunction(){
+        	$('#loginModal').click();
+        	//$('#registerModal').click();
         }
         
         $(".sidemenu").square_menu({
@@ -547,13 +543,6 @@
     		animationStyle: "vertical", // The type of animation style you will see after it flew in. Available options are "vertical" which expands vertically and "horizontal" which expands horizontally. Vertical works best with "top" or "bottom" flyDirection whereas Horizontal works best with "left" or "right" flyDirection. The default value is "vertical".
     		closeButton: "X" // You can define the content of the close button appears after animates are completed here. Change this to false to hide the close button. The default value is X.
   		});
-      	
-      	/*$(".loginmenu").square_menu_login({
-    		flyDirection: "top", // The direction where the menu will fly from. Available options are "top", "bottom", "left", "right", "top-left", "top-right", "bottom-left" and "bottom-right". The default value is "bottom".
-    		button: false, // You can define text inside the auto-generated button here. If you want to prevent the plugin from generating a menu button, change this to false. The default value is "Menu".
-    		animationStyle: "vertical", // The type of animation style you will see after it flew in. Available options are "vertical" which expands vertically and "horizontal" which expands horizontally. Vertical works best with "top" or "bottom" flyDirection whereas Horizontal works best with "left" or "right" flyDirection. The default value is "vertical".
-    		closeButton: "X" // You can define the content of the close button appears after animates are completed here. Change this to false to hide the close button. The default value is X.
-  		});*/
      </script>
 
   
