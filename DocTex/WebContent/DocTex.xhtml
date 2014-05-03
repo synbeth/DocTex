@@ -484,8 +484,9 @@
             <div style="padding-right:50px;">
             	<p style="text-align:center;"><i>Help spread the word!</i></p>
             	<br /><br />
-            	<!-- <p style="padding-left:50px;">Notice: style="font-size:10px;">Passwords are currently not required for registration. You will be asked to provide a password upon logging into DocTex for the first time once the site is completed.</p>
-            	-->
+            	<div>
+            		<p style="margin-left:50px;font-size:12px;border:1px solid;padding: 5px 5px 5px 5px;">Notice: <span style="font-size:12px;">Passwords are currently not required. You will be asked to provide a password upon logging into DocTex for the first time once the site is offically launched.</span></p>
+            	</div>
             </div>
           </nav>
           <nav class="right">
@@ -499,8 +500,8 @@
     	   				<h:panelGrid columns="1">
         					<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
           					<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
-          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
-          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
+          					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" style="background:#C0C0C0;"/>
+          					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" style="background:#C0C0C0;"/>
         				</h:panelGrid>
         			</div>
         			<div class="bl_form" style="margin-left:91px;margin-top:0px;">
