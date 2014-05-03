@@ -15,6 +15,8 @@
 	<script src="resources/scripts/jquery-2.1.0.js"></script>
 	<script src="resources/scripts/jquery.immersive-slider.js"></script>
 	
+	<script src="resources/scripts/jquery.validate.js"></script>
+	
 	<link rel="stylesheet" href="resources/css/square_menu.css" type="text/css" />
 	<link rel="stylesheet" href="resources/css/square_menu_login.css" type="text/css" />
 	<script src="resources/scripts/jquery.square_menu_login.js"></script>
@@ -366,6 +368,15 @@
 	:-ms-input-placeholder {  
    		color: rgb(95,95,95);  
 	}
+	
+	/*#registration_form label.error {
+  		color:#B20505;
+  		display: inline-block;
+  		float: none;
+  		font-size: 14px;
+  		z-index: 3;
+  		margin-top:-50px;
+	}*/
 	  
 	</style>
 
@@ -490,11 +501,11 @@
           			<h2><b>Create a new account</b></h2>
           			<p>It's simple. It's free. All at the touch of a button.</p>
           		</div>
-          		<h:form>
+          		<h:form id="registration_form" action="" method="post">
     	   			<div class="bl_form">
     	   				<h:panelGrid columns="1">
-        					<input type="text" class="label_better" required="required" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" name="username" value="#{registrationBean.username}" autocomplete="off"/>
-          					<input type="email" class="label_better" required="required" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" name="email" value="#{registrationBean.email}" autocomplete="off"/>
+        					<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" name="username" value="#{registrationBean.username}"/>
+          					<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" name="email" value="#{registrationBean.email}"/>
           					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" style="background:#C0C0C0;" autocomplete="off"/>
           					<input type="password" class="label_better" disabled="disabled" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" style="background:#C0C0C0;" autocomplete="off"/>
         				</h:panelGrid>
@@ -521,7 +532,51 @@
       	<h2>We&#39;re sorry, but at this time DocTex is still<br/><span style="font-variant:small-caps;"><b>under construction</b>.</span><br />We&#39;ll email you as soon as the site launches!</h2>
       </div>
       <!-- ########################################################################################### -->      
-      <script type="text/javascript">      
+      <script type="text/javascript">  
+      /*$(function() {
+    	  
+    	    // Setup form validation on the #register-form element
+    	    $("#registration_form").validate({
+    	    
+    	        // Specify the validation rules
+    	        rules: {
+    	            username: {
+    	            	required: true,
+    	            	minlength: 2
+    	            },
+    	            email: {
+    	                required: true,
+    	                email: true
+    	            },
+    	        },
+    	        
+    	        // Specify the validation error messages
+    	        messages: {
+    	            username: {
+    	                required: "Username is required",
+    	                minlength: "Username must be at least 2 characters long"
+    	            },
+    	            email: {
+    	            	required: "Email is required",
+    	            	email: "Please enter a valid email address",
+    	            },
+    	        },
+    	        
+    	        submitHandler: function(form) {
+    	            form.submit();
+    	        },
+    	        
+    	        errorPlacement: function(error, element) {
+    	        	element.after(error);
+    	            offset = element.offset();
+    	            error.css('left', offset.left);
+    	            //error.css('top', offset.top - element.outerHeight());
+    	        }
+
+    	    });
+
+    	  });*/ 
+      
         //$("#leanModal").leanModal();
         $(function() {
 			$('a[rel*=leanModal]').leanModal({ top: 200, overlay: 0.4, closeButton: ".modal_close" });		
