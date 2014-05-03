@@ -494,22 +494,24 @@
           			<h2><b>Create a new account</b></h2>
           			<p>It's simple. It's free. All at the touch of a button.</p>
           		</div>
-    	   		<form class="bl_form">
-    	   			<h:panelGrid columns="1">
-        				<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
-          				<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
-          				<input type="password" disabled="disabled" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}" style="background:#C0C0C0;"/>
-          				<input type="password" disabled="disabled" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}" style="background:#C0C0C0;"/>
-        			</h:panelGrid>
-        		</form>
-        		<form class="bl_form" style="margin-left:91px;margin-top:0px;">
-        			<h:panelGrid columns="3">
-        				<h:commandButton class="submit_register" type="submit" id="register_landing_user" action="#{registrationBean.register}" onclick="registerFunction();" value="Register"/>
-        				<h:outputText value="&#160;&#160;&#160;&#160;"></h:outputText>
-        				<h:commandButton class="submit_register" type="button" id="cancel_register_landing_user" onclick="$('.sidemenu').closeMenu();" value="Cancel"/>
-        			</h:panelGrid>
-        			<!-- <p:commandButton value="Register" action="#{registrationBean.register}" styleClass="ui-priority-primary"></p:commandButton> -->
-        		</form>
+          		<h:form>
+    	   			<div class="bl_form">
+    	   				<h:panelGrid columns="1">
+        					<input type="text" class="label_better" data-position="top" data-new-placeholder="Username" placeholder="Username" id="username" value="#{registrationBean.username}"/>
+          					<input type="email" class="label_better" data-position="top" data-new-placeholder="Email Address" placeholder="Email Address" id="email" value="#{registrationBean.email}" />
+          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Password" placeholder="Password" id="password" value="#{registrationBean.password}"/>
+          					<input type="password" class="label_better" data-position="top" data-new-placeholder="Shhh..." placeholder="Confirm Password" id="confirm" value="#{registrationBean.reTypePassword}"/>
+        				</h:panelGrid>
+        			</div>
+        			<div class="bl_form" style="margin-left:91px;margin-top:0px;">
+        				<h:panelGrid columns="3">
+        					<h:commandButton class="submit_register" type="submit" id="register_landing_user" action="#{registrationBean.register}" onclick="registerFunction();" value="Register"/>
+        					<h:outputText value="&#160;&#160;&#160;&#160;"></h:outputText>
+        					<h:commandButton class="submit_register" type="button" id="cancel_register_landing_user" onclick="$('.sidemenu').closeMenu();" value="Cancel"/>
+        				</h:panelGrid>
+        				<!-- <p:commandButton value="Register" action="#{registrationBean.register}" styleClass="ui-priority-primary"></p:commandButton> -->
+        			</div>
+        		</h:form>
       		</div>
           </nav>
         </div>

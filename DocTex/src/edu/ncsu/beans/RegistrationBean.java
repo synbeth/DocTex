@@ -40,7 +40,7 @@ public class RegistrationBean {
 	 * @param username the username to set
 	 */
 	public void setUsername(String username) {
-		this.username = username;
+		this.username = username.trim();
 	}
 	
 	/**
@@ -54,7 +54,7 @@ public class RegistrationBean {
 	 * @param password the password to set
 	 */
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = password.trim();
 	}
 
 	/**
@@ -91,14 +91,33 @@ public class RegistrationBean {
     	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     	session.beginTransaction();
     	
-    	User user = (User) session.get(User.class, username);
-    	session.getTransaction().commit();
+    	this.password = "#";
+    	this.reTypePassword = "#";
+    	
+    	if (this.username == null || this.username.equals("")) {
+    		fc.addMessage("registerUser", new FacesMessage("Invalid username"));
+    		
+    		return "failure";
+    	}
+    	
+    	User user;
+    	
+    	try {
+    		session.beginTransaction();
+    		user = (User) session.get(User.class, username);
+        	session.getTransaction().commit();
+    	} catch (RuntimeException e) {
+    		session.getTransaction().rollback();
+    		
+    		return "failure";
+    	}
+    	
     	if (user != null) {
     		fc.addMessage("registerUser", new FacesMessage("Username already taken"));
 
     		return "failure";
     	} else if (this.password == null || this.reTypePassword == null 
-    				|| !this.password.equals(this.reTypePassword)) {
+    				|| !this.password.equals(this.reTypePassword) || !this.password.equals("")) {
     		fc.addMessage("registerUser", new FacesMessage("Password does not match"));
 
     		return "failure";
