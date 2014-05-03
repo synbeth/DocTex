@@ -138,6 +138,7 @@ public class RegistrationBean {
     	try {
     		sendConfirmationEmail();
     	} catch (Exception e) {
+    		e.printStackTrace();
     		System.out.println("Email could not be sent");
     		
     		return "failure";
@@ -189,8 +190,14 @@ public class RegistrationBean {
         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(this.email, false));
         
         msg.setSubject("DocTex Registration Confirmation");
-        //msg.setText("Thank you for signing up for DocTex, " + this.username + "! DocTex is currently under construction, but we will notify you as soon as it is released.", "text/html; charset=utf-8");
-        msg.setText("Thank you for signing up for DocTex, " + this.username + "!<br />DocTex is currently under construction, but we will notify you as soon as it is released. With your DocTex account you'll have access to hundreds of existing templates with the ability to upload your very own. We strive to provide you with professionally designed, aesthetic document formats. Stayed tuned as the site undergoes major changes in the coming weeks.<br /><br />DocTex is user-friendly and designed with all audiences in mind. Please refer us to your friends and family! <br />- The DocTex Team", "text/html; charset=utf-8");
+        msg.setText("<p>Thank you for signing up for DocTex, " + this.username 
+        		+ "! <br />DocTex is currently under construction, but we will "
+        		+ "notify you as soon as it is released. With your DocTex account "
+        		+ "you'll have access to hundreds of existing templates with the ability "
+        		+ "to upload your very own. We strive to provide you with professionally designed, "
+        		+ "aesthetic document formats. Stayed tuned as the site undergoes major changes in the "
+        		+ "coming weeks.<br /><br />DocTex is user-friendly and designed with all audiences in mind. "
+        		+ "Please refer us to your friends and family! </p><p>- The DocTex Team</p>", "utf-8", "html");
         msg.setSentDate(new Date());
 
         SMTPTransport t = (SMTPTransport)session.getTransport("smtps");
