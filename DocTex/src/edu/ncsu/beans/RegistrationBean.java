@@ -88,10 +88,7 @@ public class RegistrationBean {
 	public String register() {
 		
 		FacesContext fc = FacesContext.getCurrentInstance();
-    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-    	session.beginTransaction();
-    	
-    	this.password = "#";
+		this.password = "#";
     	this.reTypePassword = "#";
     	
     	if (this.username == null || this.username.equals("")) {
@@ -99,7 +96,8 @@ public class RegistrationBean {
     		
     		return "failure";
     	}
-    	
+		
+    	Session session = HibernateUtil.getSessionFactory().getCurrentSession();
     	User user;
     	
     	try {
